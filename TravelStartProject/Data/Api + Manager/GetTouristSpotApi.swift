@@ -13,7 +13,7 @@ class GetTouristSpotApi: BaseApi {
     func execute(inBackground: Bool = false,
                  offset: Int,
                  preSendHandler: @escaping (_ isReachable: Bool) -> Void,
-                 successHandler: @escaping (_ response: AnyObject?) -> Void,
+                 successHandler: @escaping (_ response: Data?) -> Void,
                  errorHandler: @escaping (_ error: NetworkError) -> Void,
                  finalHandler: @escaping (_ isReachable: Bool) -> Void)
     {

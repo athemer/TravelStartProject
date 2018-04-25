@@ -70,7 +70,7 @@ public class BaseApi {
     func exchange(inBackground: Bool = false,
                          requestBlock: @escaping (_ request: BaseAlamofireRequest) -> Void,
                          preSendHandler: @escaping (_ isReachable: Bool) -> Void,
-                         successHandler: @escaping (_ response: AnyObject?) -> Void,
+                         successHandler: @escaping (_ response: Data?) -> Void,
                          errorHandler: @escaping (_ error: NetworkError) -> Void,
                          finalHandler: @escaping (_ isReachable: Bool) -> Void)
     {
@@ -103,6 +103,12 @@ public class BaseApi {
             return manager
         }()
         
+        self.sessionRequest = sessionManager.request(request.url!,
+                                                     method: request.method!,
+                                                     parameters: request.parameters,
+                                                     encoding: request.encoding,
+                                                     headers: request.headers)
+        
         let completionHandler: (DataResponse<Any>) -> Void = { (response) in
 
             sessionManager.session.invalidateAndCancel()
@@ -110,13 +116,14 @@ public class BaseApi {
             if let _ = response.result.error
             {
                 errorHandler(.dataTaskError)
+                print ("FAILED ===", response.result.description)
                 finalHandler(self.isReachable())
                 
             } else {
                 
-                let value = response.result.value as AnyObject
-                
+                let value = response.data
                 successHandler(value)
+                print ("PASSED ===", response.result.description)
                 finalHandler(self.isReachable())
             }
         }

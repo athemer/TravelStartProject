@@ -21,7 +21,7 @@ class TouristSpotManager {
         GetTouristSpotApi().execute(inBackground: inBackground, offset: offset, preSendHandler: preSendHandler, successHandler: { (response) in
             
             guard
-                let data = response?.data
+                response != nil
                 else {
                     errorHandler(.dataTaskError)
                 return
@@ -30,7 +30,7 @@ class TouristSpotManager {
             let decoder = JSONDecoder()
             
             do {
-                let sitesObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject]
+                let sitesObject = try JSONSerialization.jsonObject(with: response!, options: []) as? [String: AnyObject]
                 
                 guard
                     let result = sitesObject?["result"] as? [String: AnyObject],
