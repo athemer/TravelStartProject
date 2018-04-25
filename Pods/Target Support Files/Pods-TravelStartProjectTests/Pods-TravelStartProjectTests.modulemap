@@ -1,0 +1,6 @@
+framework module Pods_TravelStartProjectTests {
+  umbrella header "Pods-TravelStartProjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

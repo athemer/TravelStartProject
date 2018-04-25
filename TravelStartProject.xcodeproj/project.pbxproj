@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64743BD7C9B962DAA89E1BA7 /* Pods_TravelStartProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D618B7BE0426CF8A4378D8B6 /* Pods_TravelStartProject.framework */; };
+		A0E76595B88CB67C8F8B06CA /* Pods_TravelStartProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CF762F8D2E0FB29B738826 /* Pods_TravelStartProjectUITests.framework */; };
 		F5190EA52090B69600C51FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EA42090B69600C51FD4 /* AppDelegate.swift */; };
 		F5190EA72090B69600C51FD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EA62090B69600C51FD4 /* ViewController.swift */; };
 		F5190EAA2090B69600C51FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5190EA82090B69600C51FD4 /* Main.storyboard */; };
@@ -14,6 +16,16 @@
 		F5190EAF2090B69600C51FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5190EAD2090B69600C51FD4 /* LaunchScreen.storyboard */; };
 		F5190EBA2090B69700C51FD4 /* TravelStartProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EB92090B69700C51FD4 /* TravelStartProjectTests.swift */; };
 		F5190EC52090B69700C51FD4 /* TravelStartProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EC42090B69700C51FD4 /* TravelStartProjectUITests.swift */; };
+		F5190ED62090BBF600C51FD4 /* TouristSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190ED52090BBF600C51FD4 /* TouristSpotModel.swift */; };
+		F5190ED92090BF0800C51FD4 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190ED82090BF0800C51FD4 /* ExtensionString.swift */; };
+		F5190EDB2090C85900C51FD4 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EDA2090C85900C51FD4 /* DataLoader.swift */; };
+		F5190EDD2090C89700C51FD4 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EDC2090C89700C51FD4 /* RequestToken.swift */; };
+		F5190EDF2090CB2500C51FD4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5190EDE2090CB2500C51FD4 /* Info.plist */; };
+		F5190EE22090CD5F00C51FD4 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE12090CD5F00C51FD4 /* Constant.swift */; };
+		F5190EE42090CD8C00C51FD4 /* ExtensionNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */; };
+		F5190EE72090D7DC00C51FD4 /* GetTouristSpotApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE62090D7DC00C51FD4 /* GetTouristSpotApi.swift */; };
+		F5190EE92090D96D00C51FD4 /* TouristSpotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE82090D96D00C51FD4 /* TouristSpotManager.swift */; };
+		FCFC3B0DD23C7C95D1538329 /* Pods_TravelStartProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +46,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55D9580550B048959701D1B6 /* Pods-TravelStartProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelStartProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelStartProjectUITests/Pods-TravelStartProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6112D3F6CDDDC65DB013B155 /* Pods-TravelStartProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelStartProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelStartProjectTests/Pods-TravelStartProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6880C4C71261260729DB735F /* Pods-TravelStartProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelStartProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelStartProject/Pods-TravelStartProject.release.xcconfig"; sourceTree = "<group>"; };
+		90A6DDA346A4899CD3D0A2CF /* Pods-TravelStartProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelStartProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelStartProjectUITests/Pods-TravelStartProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C0CF762F8D2E0FB29B738826 /* Pods_TravelStartProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelStartProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CACBE290CB2363012489555A /* Pods-TravelStartProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelStartProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelStartProjectTests/Pods-TravelStartProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelStartProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D618B7BE0426CF8A4378D8B6 /* Pods_TravelStartProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelStartProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11342652EFD6F540EA91AA4 /* Pods-TravelStartProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelStartProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelStartProject/Pods-TravelStartProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F5190EA12090B69600C51FD4 /* TravelStartProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelStartProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5190EA42090B69600C51FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5190EA62090B69600C51FD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5190EA92090B69600C51FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5190EAB2090B69600C51FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5190EAE2090B69600C51FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F5190EB02090B69600C51FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5190EB52090B69700C51FD4 /* TravelStartProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelStartProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5190EB92090B69700C51FD4 /* TravelStartProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelStartProjectTests.swift; sourceTree = "<group>"; };
 		F5190EBB2090B69700C51FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5190EC02090B69700C51FD4 /* TravelStartProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelStartProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5190EC42090B69700C51FD4 /* TravelStartProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelStartProjectUITests.swift; sourceTree = "<group>"; };
 		F5190EC62090B69700C51FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5190ED52090BBF600C51FD4 /* TouristSpotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristSpotModel.swift; sourceTree = "<group>"; };
+		F5190ED82090BF0800C51FD4 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		F5190EDA2090C85900C51FD4 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		F5190EDC2090C89700C51FD4 /* RequestToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToken.swift; sourceTree = "<group>"; };
+		F5190EDE2090CB2500C51FD4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5190EE12090CD5F00C51FD4 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNotificationCenter.swift; sourceTree = "<group>"; };
+		F5190EE62090D7DC00C51FD4 /* GetTouristSpotApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTouristSpotApi.swift; sourceTree = "<group>"; };
+		F5190EE82090D96D00C51FD4 /* TouristSpotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristSpotManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64743BD7C9B962DAA89E1BA7 /* Pods_TravelStartProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFC3B0DD23C7C95D1538329 /* Pods_TravelStartProjectTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +99,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E76595B88CB67C8F8B06CA /* Pods_TravelStartProjectUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FA1216BA28F73DC8C40EBF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D618B7BE0426CF8A4378D8B6 /* Pods_TravelStartProject.framework */,
+				D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */,
+				C0CF762F8D2E0FB29B738826 /* Pods_TravelStartProjectUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E899AE0D65908C741858ABE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E11342652EFD6F540EA91AA4 /* Pods-TravelStartProject.debug.xcconfig */,
+				6880C4C71261260729DB735F /* Pods-TravelStartProject.release.xcconfig */,
+				6112D3F6CDDDC65DB013B155 /* Pods-TravelStartProjectTests.debug.xcconfig */,
+				CACBE290CB2363012489555A /* Pods-TravelStartProjectTests.release.xcconfig */,
+				90A6DDA346A4899CD3D0A2CF /* Pods-TravelStartProjectUITests.debug.xcconfig */,
+				55D9580550B048959701D1B6 /* Pods-TravelStartProjectUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F5190E982090B69600C51FD4 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +136,8 @@
 				F5190EB82090B69700C51FD4 /* TravelStartProjectTests */,
 				F5190EC32090B69700C51FD4 /* TravelStartProjectUITests */,
 				F5190EA22090B69600C51FD4 /* Products */,
+				E899AE0D65908C741858ABE9 /* Pods */,
+				7FA1216BA28F73DC8C40EBF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +154,15 @@
 		F5190EA32090B69600C51FD4 /* TravelStartProject */ = {
 			isa = PBXGroup;
 			children = (
-				F5190EA42090B69600C51FD4 /* AppDelegate.swift */,
+				F5190EE02090CD4900C51FD4 /* Common */,
+				F5190ED72090BEED00C51FD4 /* Extensions */,
+				F5190ED42090BBDB00C51FD4 /* Data */,
+				F5190ED32090B83B00C51FD4 /* AppDelegate */,
+				F5190ED22090B81100C51FD4 /* supportingFiles */,
 				F5190EA62090B69600C51FD4 /* ViewController.swift */,
+				F5190EDE2090CB2500C51FD4 /* Info.plist */,
 				F5190EA82090B69600C51FD4 /* Main.storyboard */,
-				F5190EAB2090B69600C51FD4 /* Assets.xcassets */,
 				F5190EAD2090B69600C51FD4 /* LaunchScreen.storyboard */,
-				F5190EB02090B69600C51FD4 /* Info.plist */,
 			);
 			path = TravelStartProject;
 			sourceTree = "<group>";
@@ -125,6 +185,59 @@
 			path = TravelStartProjectUITests;
 			sourceTree = "<group>";
 		};
+		F5190ED22090B81100C51FD4 /* supportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F5190EAB2090B69600C51FD4 /* Assets.xcassets */,
+			);
+			path = supportingFiles;
+			sourceTree = "<group>";
+		};
+		F5190ED32090B83B00C51FD4 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F5190EA42090B69600C51FD4 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		F5190ED42090BBDB00C51FD4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F5190ED52090BBF600C51FD4 /* TouristSpotModel.swift */,
+				F5190EDA2090C85900C51FD4 /* DataLoader.swift */,
+				F5190EDC2090C89700C51FD4 /* RequestToken.swift */,
+				F5190EE52090D7B100C51FD4 /* Api + Manager */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F5190ED72090BEED00C51FD4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5190ED82090BF0800C51FD4 /* ExtensionString.swift */,
+				F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5190EE02090CD4900C51FD4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F5190EE12090CD5F00C51FD4 /* Constant.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F5190EE52090D7B100C51FD4 /* Api + Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F5190EE62090D7DC00C51FD4 /* GetTouristSpotApi.swift */,
+				F5190EE82090D96D00C51FD4 /* TouristSpotManager.swift */,
+			);
+			path = "Api + Manager";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +245,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5190EC92090B69700C51FD4 /* Build configuration list for PBXNativeTarget "TravelStartProject" */;
 			buildPhases = (
+				07223E15EC49182E5E89A489 /* [CP] Check Pods Manifest.lock */,
 				F5190E9D2090B69600C51FD4 /* Sources */,
 				F5190E9E2090B69600C51FD4 /* Frameworks */,
 				F5190E9F2090B69600C51FD4 /* Resources */,
+				7686417AAB9652656D41E8C2 /* [CP] Embed Pods Frameworks */,
+				C3B8CAD0C1602ADE2427544E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +265,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5190ECC2090B69700C51FD4 /* Build configuration list for PBXNativeTarget "TravelStartProjectTests" */;
 			buildPhases = (
+				86692B50BC889A401245BC39 /* [CP] Check Pods Manifest.lock */,
 				F5190EB12090B69700C51FD4 /* Sources */,
 				F5190EB22090B69700C51FD4 /* Frameworks */,
 				F5190EB32090B69700C51FD4 /* Resources */,
+				F16A8B0CBF0A172E6BD1FF6B /* [CP] Embed Pods Frameworks */,
+				8234F73C16E62232CFC7592F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5190ECF2090B69700C51FD4 /* Build configuration list for PBXNativeTarget "TravelStartProjectUITests" */;
 			buildPhases = (
+				1A6582AE8F6AB1E1E265735A /* [CP] Check Pods Manifest.lock */,
 				F5190EBC2090B69700C51FD4 /* Sources */,
 				F5190EBD2090B69700C51FD4 /* Frameworks */,
 				F5190EBE2090B69700C51FD4 /* Resources */,
+				B4FC5335CD1FFF6A5FD57966 /* [CP] Embed Pods Frameworks */,
+				4849A92CFA6C5AFCE6BA082F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5190EDF2090CB2500C51FD4 /* Info.plist in Resources */,
 				F5190EAF2090B69600C51FD4 /* LaunchScreen.storyboard in Resources */,
 				F5190EAC2090B69600C51FD4 /* Assets.xcassets in Resources */,
 				F5190EAA2090B69600C51FD4 /* Main.storyboard in Resources */,
@@ -254,13 +377,159 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07223E15EC49182E5E89A489 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1A6582AE8F6AB1E1E265735A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4849A92CFA6C5AFCE6BA082F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelStartProjectUITests/Pods-TravelStartProjectUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7686417AAB9652656D41E8C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelStartProject/Pods-TravelStartProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8234F73C16E62232CFC7592F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelStartProjectTests/Pods-TravelStartProjectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86692B50BC889A401245BC39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4FC5335CD1FFF6A5FD57966 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelStartProjectUITests/Pods-TravelStartProjectUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3B8CAD0C1602ADE2427544E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelStartProject/Pods-TravelStartProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F16A8B0CBF0A172E6BD1FF6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelStartProjectTests/Pods-TravelStartProjectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F5190E9D2090B69600C51FD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5190EE22090CD5F00C51FD4 /* Constant.swift in Sources */,
+				F5190EDB2090C85900C51FD4 /* DataLoader.swift in Sources */,
+				F5190EDD2090C89700C51FD4 /* RequestToken.swift in Sources */,
+				F5190EE42090CD8C00C51FD4 /* ExtensionNotificationCenter.swift in Sources */,
+				F5190ED92090BF0800C51FD4 /* ExtensionString.swift in Sources */,
+				F5190EE72090D7DC00C51FD4 /* GetTouristSpotApi.swift in Sources */,
 				F5190EA72090B69600C51FD4 /* ViewController.swift in Sources */,
 				F5190EA52090B69600C51FD4 /* AppDelegate.swift in Sources */,
+				F5190EE92090D96D00C51FD4 /* TouristSpotManager.swift in Sources */,
+				F5190ED62090BBF600C51FD4 /* TouristSpotModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +693,7 @@
 		};
 		F5190ECA2090B69700C51FD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E11342652EFD6F540EA91AA4 /* Pods-TravelStartProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -440,6 +710,7 @@
 		};
 		F5190ECB2090B69700C51FD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6880C4C71261260729DB735F /* Pods-TravelStartProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +727,7 @@
 		};
 		F5190ECD2090B69700C51FD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6112D3F6CDDDC65DB013B155 /* Pods-TravelStartProjectTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +745,7 @@
 		};
 		F5190ECE2090B69700C51FD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CACBE290CB2363012489555A /* Pods-TravelStartProjectTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +763,7 @@
 		};
 		F5190ED02090B69700C51FD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90A6DDA346A4899CD3D0A2CF /* Pods-TravelStartProjectUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +780,7 @@
 		};
 		F5190ED12090B69700C51FD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55D9580550B048959701D1B6 /* Pods-TravelStartProjectUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
