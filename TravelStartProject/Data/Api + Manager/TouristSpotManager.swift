@@ -40,6 +40,7 @@ class TouristSpotManager {
                         return }
                 
                 let sitesArrayData = try JSONSerialization.data(withJSONObject: sitesArray, options: .prettyPrinted)
+                
                 let touristModels = try decoder.decode([TouristSpotModel].self, from: sitesArrayData)
                 
                 successHandler(touristModels)

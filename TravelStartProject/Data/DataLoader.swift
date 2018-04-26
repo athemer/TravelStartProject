@@ -116,14 +116,12 @@ public class BaseApi {
             if let _ = response.result.error
             {
                 errorHandler(.dataTaskError)
-                print ("FAILED ===", response.result.description)
                 finalHandler(self.isReachable())
                 
             } else {
                 
                 let value = response.data
                 successHandler(value)
-                print ("PASSED ===", response.result.description)
                 finalHandler(self.isReachable())
             }
         }

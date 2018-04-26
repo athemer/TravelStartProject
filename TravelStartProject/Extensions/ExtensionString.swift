@@ -12,6 +12,10 @@ extension String {
     
     public static let stopTask = "StopTask"
     public static let taskQueue = "TaskQueue"
+    public static let mainTableViewCellId = "MainTableViewCell"
+    public static let mainCollectionViewCellId = "MainCollectionViewCell"
+    public static let mainStoryboard = "Main"
+    public static let mainViewController = "MainViewController"
     
     func convertToURL() -> [URL]?
     {

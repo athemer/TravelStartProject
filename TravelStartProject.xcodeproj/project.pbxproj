@@ -25,6 +25,16 @@
 		F5190EE42090CD8C00C51FD4 /* ExtensionNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */; };
 		F5190EE72090D7DC00C51FD4 /* GetTouristSpotApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE62090D7DC00C51FD4 /* GetTouristSpotApi.swift */; };
 		F5190EE92090D96D00C51FD4 /* TouristSpotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE82090D96D00C51FD4 /* TouristSpotManager.swift */; };
+		F5190EF620921B0000C51FD4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EF520921B0000C51FD4 /* MainViewController.swift */; };
+		F5190EF920921B2100C51FD4 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EF720921B2100C51FD4 /* MainTableViewCell.swift */; };
+		F5190EFA20921B2100C51FD4 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5190EF820921B2100C51FD4 /* MainTableViewCell.xib */; };
+		F5190EFD20921F9200C51FD4 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EFB20921F9200C51FD4 /* MainCollectionViewCell.swift */; };
+		F5190EFE20921F9200C51FD4 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5190EFC20921F9200C51FD4 /* MainCollectionViewCell.xib */; };
+		F5190F002092279100C51FD4 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EFF2092279100C51FD4 /* MainPresenter.swift */; };
+		F5190F02209227A700C51FD4 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F01209227A700C51FD4 /* MainInteractor.swift */; };
+		F5190F04209227C000C51FD4 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F03209227C000C51FD4 /* MainRouter.swift */; };
+		F5190F07209227E700C51FD4 /* MainContractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F06209227E700C51FD4 /* MainContractor.swift */; };
+		F5190F0A2092284D00C51FD4 /* ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F092092284D00C51FD4 /* ViewProtocols.swift */; };
 		FCFC3B0DD23C7C95D1538329 /* Pods_TravelStartProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +86,16 @@
 		F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNotificationCenter.swift; sourceTree = "<group>"; };
 		F5190EE62090D7DC00C51FD4 /* GetTouristSpotApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTouristSpotApi.swift; sourceTree = "<group>"; };
 		F5190EE82090D96D00C51FD4 /* TouristSpotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristSpotManager.swift; sourceTree = "<group>"; };
+		F5190EF520921B0000C51FD4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F5190EF720921B2100C51FD4 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		F5190EF820921B2100C51FD4 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		F5190EFB20921F9200C51FD4 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5190EFC20921F9200C51FD4 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		F5190EFF2092279100C51FD4 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		F5190F01209227A700C51FD4 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		F5190F03209227C000C51FD4 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		F5190F06209227E700C51FD4 /* MainContractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContractor.swift; sourceTree = "<group>"; };
+		F5190F092092284D00C51FD4 /* ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +174,8 @@
 		F5190EA32090B69600C51FD4 /* TravelStartProject */ = {
 			isa = PBXGroup;
 			children = (
+				F5190F082092283000C51FD4 /* Protocols */,
+				F5190EEE20921A1D00C51FD4 /* Modules */,
 				F5190EE02090CD4900C51FD4 /* Common */,
 				F5190ED72090BEED00C51FD4 /* Extensions */,
 				F5190ED42090BBDB00C51FD4 /* Data */,
@@ -236,6 +258,86 @@
 				F5190EE82090D96D00C51FD4 /* TouristSpotManager.swift */,
 			);
 			path = "Api + Manager";
+			sourceTree = "<group>";
+		};
+		F5190EEE20921A1D00C51FD4 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F5190EF020921A3700C51FD4 /* Main */,
+				F5190EEF20921A2C00C51FD4 /* Navigation */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F5190EEF20921A2C00C51FD4 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F5190EF020921A3700C51FD4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F05209227CF00C51FD4 /* Contractor */,
+				F5190EF420921A6700C51FD4 /* Router */,
+				F5190EF320921A5600C51FD4 /* Interactor */,
+				F5190EF220921A4F00C51FD4 /* Presenter */,
+				F5190EF120921A4900C51FD4 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F5190EF120921A4900C51FD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F5190EF520921B0000C51FD4 /* MainViewController.swift */,
+				F5190EF720921B2100C51FD4 /* MainTableViewCell.swift */,
+				F5190EF820921B2100C51FD4 /* MainTableViewCell.xib */,
+				F5190EFB20921F9200C51FD4 /* MainCollectionViewCell.swift */,
+				F5190EFC20921F9200C51FD4 /* MainCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F5190EF220921A4F00C51FD4 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F5190EFF2092279100C51FD4 /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F5190EF320921A5600C51FD4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F01209227A700C51FD4 /* MainInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F5190EF420921A6700C51FD4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F03209227C000C51FD4 /* MainRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F5190F05209227CF00C51FD4 /* Contractor */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F06209227E700C51FD4 /* MainContractor.swift */,
+			);
+			path = Contractor;
+			sourceTree = "<group>";
+		};
+		F5190F082092283000C51FD4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F092092284D00C51FD4 /* ViewProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,8 +457,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5190EDF2090CB2500C51FD4 /* Info.plist in Resources */,
+				F5190EFE20921F9200C51FD4 /* MainCollectionViewCell.xib in Resources */,
 				F5190EAF2090B69600C51FD4 /* LaunchScreen.storyboard in Resources */,
 				F5190EAC2090B69600C51FD4 /* Assets.xcassets in Resources */,
+				F5190EFA20921B2100C51FD4 /* MainTableViewCell.xib in Resources */,
 				F5190EAA2090B69600C51FD4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,14 +625,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5190EE22090CD5F00C51FD4 /* Constant.swift in Sources */,
+				F5190F04209227C000C51FD4 /* MainRouter.swift in Sources */,
+				F5190EF620921B0000C51FD4 /* MainViewController.swift in Sources */,
 				F5190EDB2090C85900C51FD4 /* DataLoader.swift in Sources */,
+				F5190F07209227E700C51FD4 /* MainContractor.swift in Sources */,
 				F5190EDD2090C89700C51FD4 /* RequestToken.swift in Sources */,
 				F5190EE42090CD8C00C51FD4 /* ExtensionNotificationCenter.swift in Sources */,
+				F5190F002092279100C51FD4 /* MainPresenter.swift in Sources */,
+				F5190EFD20921F9200C51FD4 /* MainCollectionViewCell.swift in Sources */,
 				F5190ED92090BF0800C51FD4 /* ExtensionString.swift in Sources */,
+				F5190F02209227A700C51FD4 /* MainInteractor.swift in Sources */,
+				F5190EF920921B2100C51FD4 /* MainTableViewCell.swift in Sources */,
 				F5190EE72090D7DC00C51FD4 /* GetTouristSpotApi.swift in Sources */,
 				F5190EA72090B69600C51FD4 /* ViewController.swift in Sources */,
 				F5190EA52090B69600C51FD4 /* AppDelegate.swift in Sources */,
 				F5190EE92090D96D00C51FD4 /* TouristSpotManager.swift in Sources */,
+				F5190F0A2092284D00C51FD4 /* ViewProtocols.swift in Sources */,
 				F5190ED62090BBF600C51FD4 /* TouristSpotModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
