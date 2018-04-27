@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
     
     var presenter: MainPresentation!
     
+    var offset: Int = 0
+    
     //MARK: Constants
     private let background_Color = UIColor(hex_String: "F6F6F6")
     fileprivate let spacing: CGFloat = 15
@@ -106,7 +108,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
-        
+//        guard indexPath.row > offset else { return }
+//        offset = offset + 10
+//        presenter.loadData(withOffset: offset + 10)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat

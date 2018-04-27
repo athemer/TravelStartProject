@@ -45,6 +45,12 @@ class MainPresenter: MainPresentation {
         router.presentNextView(with: model)
     }
     
+    func loadData(withOffset offset: Int)
+    {
+//        interactor.offset = offset
+        interactor.fetchData()
+    }
+    
 
 }
 

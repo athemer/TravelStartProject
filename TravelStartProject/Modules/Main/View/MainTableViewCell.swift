@@ -14,6 +14,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var title_Label: UILabel!
     @IBOutlet weak var content_TextView: UITextView!
     @IBOutlet private weak var photo_CollectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     //MARK: Variables
     fileprivate var model: TouristSpotModel!
@@ -27,6 +28,7 @@ class MainTableViewCell: UITableViewCell {
         super.awakeFromNib()
         configureCollectionView()
         configureContentFont()
+        configurePageControl()
     }
     
     private func configureCollectionView()
@@ -38,7 +40,12 @@ class MainTableViewCell: UITableViewCell {
         photo_CollectionView.dataSource = self
         
         photo_CollectionView.isScrollEnabled = true
-        photo_CollectionView.isPagingEnabled = true
+        photo_CollectionView.showsHorizontalScrollIndicator = false
+        
+    }
+    
+    private func configurePageControl(){
+        pageControl.hidesForSinglePage = true
     }
     
     private func configureContentFont()
@@ -58,6 +65,8 @@ class MainTableViewCell: UITableViewCell {
         
         title_Label.text = model.stitle
         content_TextView.text = model.content
+        
+        pageControl.numberOfPages = model.photoURL?.count ?? 0
         
         photo_CollectionView.reloadData()
     }
@@ -101,6 +110,13 @@ extension MainTableViewCell:  UICollectionViewDelegate, UICollectionViewDataSour
     {
         return UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
+        pageControl.currentPage = (Int(scrollView.contentOffset.x) - (Int(spacing) * pageControl.currentPage)) / 150
+    }
+    
+
 
 }
 

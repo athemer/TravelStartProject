@@ -31,12 +31,16 @@ protocol MainPresentation: class {
     
     func itemDidSelect(_ model: TouristSpotModel)
     
+    func loadData(withOffset offset: Int)
+    
 }
 
 
 protocol MainUseCase: class {
     
     var output: MainInteractorOutput! { get set }
+    
+//    var offset: Int! { get set }
     
     func fetchData()
     

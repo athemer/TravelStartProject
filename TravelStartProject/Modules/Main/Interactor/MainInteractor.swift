@@ -9,9 +9,10 @@
 import Foundation
 
 class MainInteractor: MainUseCase {
-    
+
     var output: MainInteractorOutput!
-    var offset: Int = 0
+    
+    var offset: Int!
     
     func fetchData()
     {
