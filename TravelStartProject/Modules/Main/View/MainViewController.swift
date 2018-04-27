@@ -17,6 +17,8 @@ class MainViewController: UIViewController {
     
     //MARK: Constants
     private let background_Color = UIColor(hex_String: "F6F6F6")
+    fileprivate let spacing: CGFloat = 15
+    fileprivate let insets: CGFloat = 0
     
     // MARK: DataSource
     var models: [TouristSpotModel] = [] {
@@ -49,7 +51,6 @@ class MainViewController: UIViewController {
         tableView.backgroundColor = background_Color
         tableView.separatorStyle = .none
     }
-
 }
 
 extension MainViewController: MainView {
@@ -99,8 +100,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         mainCell.setupCell(model)
         mainCell.selectionStyle = .none
-        
+
         return mainCell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard
+            let mainCell = tableView.dequeueReusableCell(withIdentifier: .mainTableViewCellId) as? MainTableViewCell
+            else { fatalError(" cannot cast mainTableViewCell ") }
+        
+        mainCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+    
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
@@ -119,4 +129,49 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         presenter.itemDidSelect(model)
     }
+}
+
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return models[collectionView.tag].photoURL?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        guard
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: .mainCollectionViewCellId, for: indexPath) as? MainCollectionViewCell
+            else { fatalError(" cannot cast mainTableViewCell ") }
+        
+        cell.setUpCell(models[collectionView.tag].photoURL?[indexPath.item])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return spacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return spacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        return CGSize(width: 200, height: 150)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
+    }
+ 
 }

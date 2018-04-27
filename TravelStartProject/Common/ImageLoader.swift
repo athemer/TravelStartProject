@@ -37,7 +37,7 @@ class ImageLoader: UIImageView {
         
         imageURL = url
         
-        image = #imageLiteral(resourceName: "Placeholder")
+        image = nil
         
         activityIndicator.startAnimating()
         

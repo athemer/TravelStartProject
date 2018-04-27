@@ -17,8 +17,14 @@ class MainCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageLoader.image = nil
+    }
+    
     public func setUpCell(_ url: URL?)
     {
+        
         configureImageLoader()
     
         imageLoader.loadImageWithUrl(url)
