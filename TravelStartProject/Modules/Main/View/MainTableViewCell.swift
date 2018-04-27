@@ -78,6 +78,8 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             let cell = photo_CollectionView.dequeueReusableCell(withReuseIdentifier: .mainCollectionViewCellId, for: indexPath) as? MainCollectionViewCell
             else { fatalError(" cannot cast mainCollectionViewCell ") }
         
+        
+        
         return cell
     }
     

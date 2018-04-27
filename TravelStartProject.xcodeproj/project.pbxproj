@@ -35,6 +35,9 @@
 		F5190F04209227C000C51FD4 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F03209227C000C51FD4 /* MainRouter.swift */; };
 		F5190F07209227E700C51FD4 /* MainContractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F06209227E700C51FD4 /* MainContractor.swift */; };
 		F5190F0A2092284D00C51FD4 /* ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F092092284D00C51FD4 /* ViewProtocols.swift */; };
+		F5190F0D2092B89200C51FD4 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F0C2092B89200C51FD4 /* RootRouter.swift */; };
+		F5190F0F2092B96400C51FD4 /* RootContractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F0E2092B96400C51FD4 /* RootContractor.swift */; };
+		F5190F132092BC5D00C51FD4 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F122092BC5D00C51FD4 /* ExtensionUIColor.swift */; };
 		FCFC3B0DD23C7C95D1538329 /* Pods_TravelStartProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,9 @@
 		F5190F03209227C000C51FD4 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		F5190F06209227E700C51FD4 /* MainContractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContractor.swift; sourceTree = "<group>"; };
 		F5190F092092284D00C51FD4 /* ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocols.swift; sourceTree = "<group>"; };
+		F5190F0C2092B89200C51FD4 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		F5190F0E2092B96400C51FD4 /* RootContractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContractor.swift; sourceTree = "<group>"; };
+		F5190F122092BC5D00C51FD4 /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				F5190ED82090BF0800C51FD4 /* ExtensionString.swift */,
+				F5190F122092BC5D00C51FD4 /* ExtensionUIColor.swift */,
 				F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */,
 			);
 			path = Extensions;
@@ -263,6 +270,7 @@
 		F5190EEE20921A1D00C51FD4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F5190F0B2092B87A00C51FD4 /* Root */,
 				F5190EF020921A3700C51FD4 /* Main */,
 				F5190EEF20921A2C00C51FD4 /* Navigation */,
 			);
@@ -338,6 +346,31 @@
 				F5190F092092284D00C51FD4 /* ViewProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F5190F0B2092B87A00C51FD4 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F112092B98100C51FD4 /* Router */,
+				F5190F102092B97800C51FD4 /* Contractor */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		F5190F102092B97800C51FD4 /* Contractor */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F0E2092B96400C51FD4 /* RootContractor.swift */,
+			);
+			path = Contractor;
+			sourceTree = "<group>";
+		};
+		F5190F112092B98100C51FD4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F5190F0C2092B89200C51FD4 /* RootRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -626,6 +659,7 @@
 			files = (
 				F5190EE22090CD5F00C51FD4 /* Constant.swift in Sources */,
 				F5190F04209227C000C51FD4 /* MainRouter.swift in Sources */,
+				F5190F0D2092B89200C51FD4 /* RootRouter.swift in Sources */,
 				F5190EF620921B0000C51FD4 /* MainViewController.swift in Sources */,
 				F5190EDB2090C85900C51FD4 /* DataLoader.swift in Sources */,
 				F5190F07209227E700C51FD4 /* MainContractor.swift in Sources */,
@@ -633,6 +667,7 @@
 				F5190EE42090CD8C00C51FD4 /* ExtensionNotificationCenter.swift in Sources */,
 				F5190F002092279100C51FD4 /* MainPresenter.swift in Sources */,
 				F5190EFD20921F9200C51FD4 /* MainCollectionViewCell.swift in Sources */,
+				F5190F0F2092B96400C51FD4 /* RootContractor.swift in Sources */,
 				F5190ED92090BF0800C51FD4 /* ExtensionString.swift in Sources */,
 				F5190F02209227A700C51FD4 /* MainInteractor.swift in Sources */,
 				F5190EF920921B2100C51FD4 /* MainTableViewCell.swift in Sources */,
@@ -641,6 +676,7 @@
 				F5190EA52090B69600C51FD4 /* AppDelegate.swift in Sources */,
 				F5190EE92090D96D00C51FD4 /* TouristSpotManager.swift in Sources */,
 				F5190F0A2092284D00C51FD4 /* ViewProtocols.swift in Sources */,
+				F5190F132092BC5D00C51FD4 /* ExtensionUIColor.swift in Sources */,
 				F5190ED62090BBF600C51FD4 /* TouristSpotModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

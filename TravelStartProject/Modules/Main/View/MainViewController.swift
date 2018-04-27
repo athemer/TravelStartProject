@@ -10,9 +10,13 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    //MARK: Variabels
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: MainPresentation!
+    
+    //MARK: Constants
+    private let background_Color = UIColor(hex_String: "F6F6F6")
     
     // MARK: DataSource
     var models: [TouristSpotModel] = [] {
@@ -21,13 +25,15 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         configureTableView()
         presenter.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
 
     }
@@ -39,8 +45,35 @@ class MainViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: .mainTableViewCellId)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.backgroundColor = background_Color
+        tableView.separatorStyle = .none
     }
 
+}
+
+extension MainViewController: MainView {
+    
+    func showActivityIndicator()
+    {
+        
+    }
+    
+    func hideActivityIndicator()
+    {
+        
+    }
+    
+    func showNoContentScreen()
+    {
+        //Show no content View when no data to show
+    }
+    
+    func showMainData(_ models: [TouristSpotModel])
+    {
+        self.models = models
+    }
+    
 }
 
 
@@ -64,12 +97,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let model = models[indexPath.row]
         
+        mainCell.setupCell(model)
+        mainCell.selectionStyle = .none
         
-//        let homeItem = self.homeItems[indexPath.row]
-//        homeCell.setUpCell(homeItem)
-//
-//        homeCell.selectionStyle = .none
-//
         return mainCell
     }
     

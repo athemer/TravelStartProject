@@ -10,38 +10,51 @@ import Foundation
 import UIKit
 
 
-var mainStoryBoard: UIStoryboard {
+var mainStoryBoard: UIStoryboard
+{
     return UIStoryboard.init(name: .mainStoryboard, bundle: nil)
 }
 
-class MainRouter: MainWireframe {
+class MainRouter: MainWireframe
+{
     
     
     var viewController: UIViewController?
     
     
-    static func assembleModule() -> UIViewController {
+    static func assembleModule() -> UIViewController
+    {
         
         guard
             let view: MainViewController = mainStoryBoard.instantiateViewController(withIdentifier: .mainViewController) as? MainViewController
             else {
-            fatalError(" cannnot cast MainViewController")
+            fatalError(" cannnot cast MainViewController ")
         }
         
         let presenter = MainPresenter()
         let interactor = MainInteractor()
         let router = MainRouter()
         
+        let navigationController = UINavigationController.init(rootViewController: view)
         
+        view.presenter = presenter
+        
+        presenter.view = view
+        presenter.interactor = interactor
+        presenter.router = router
+        
+        interactor.output = presenter
+        
+        router.viewController = view
+        
+        return navigationController
+    }
+    
+    func presentNextView(with model: TouristSpotModel)
+    {
         
         
         
     }
-    
-    func presentNextView(with model: TouristSpotModel) {
-        <#code#>
-    }
-    
-    
     
 }
