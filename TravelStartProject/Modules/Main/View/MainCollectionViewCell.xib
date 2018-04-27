@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="174" height="167"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Nmz-3C-Cs0">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Nmz-3C-Cs0" customClass="ImageLoader" customModule="TravelStartProject" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="174" height="167"/>
                     </imageView>
                 </subviews>
@@ -32,7 +32,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="174" height="167"/>
             <connections>
-                <outlet property="img_ImageView" destination="Nmz-3C-Cs0" id="PHT-I4-cUw"/>
+                <outlet property="imageLoader" destination="Nmz-3C-Cs0" id="MAD-u2-ahQ"/>
             </connections>
             <point key="canvasLocation" x="130" y="112.5"/>
         </collectionViewCell>

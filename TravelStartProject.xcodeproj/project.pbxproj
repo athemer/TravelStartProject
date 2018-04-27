@@ -38,6 +38,9 @@
 		F5190F0D2092B89200C51FD4 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F0C2092B89200C51FD4 /* RootRouter.swift */; };
 		F5190F0F2092B96400C51FD4 /* RootContractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F0E2092B96400C51FD4 /* RootContractor.swift */; };
 		F5190F132092BC5D00C51FD4 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F122092BC5D00C51FD4 /* ExtensionUIColor.swift */; };
+		F5190F152092D52200C51FD4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F142092D52200C51FD4 /* ImageCache.swift */; };
+		F5190F172092D5C700C51FD4 /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F162092D5C700C51FD4 /* ExtensionURL.swift */; };
+		F5190F192092E86100C51FD4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F182092E86100C51FD4 /* ImageLoader.swift */; };
 		FCFC3B0DD23C7C95D1538329 /* Pods_TravelStartProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +105,9 @@
 		F5190F0C2092B89200C51FD4 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		F5190F0E2092B96400C51FD4 /* RootContractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContractor.swift; sourceTree = "<group>"; };
 		F5190F122092BC5D00C51FD4 /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		F5190F142092D52200C51FD4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F5190F162092D5C700C51FD4 /* ExtensionURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
+		F5190F182092E86100C51FD4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				F5190ED82090BF0800C51FD4 /* ExtensionString.swift */,
+				F5190F162092D5C700C51FD4 /* ExtensionURL.swift */,
 				F5190F122092BC5D00C51FD4 /* ExtensionUIColor.swift */,
 				F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */,
 			);
@@ -254,6 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				F5190EE12090CD5F00C51FD4 /* Constant.swift */,
+				F5190F142092D52200C51FD4 /* ImageCache.swift */,
+				F5190F182092E86100C51FD4 /* ImageLoader.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -657,6 +666,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5190F152092D52200C51FD4 /* ImageCache.swift in Sources */,
+				F5190F172092D5C700C51FD4 /* ExtensionURL.swift in Sources */,
 				F5190EE22090CD5F00C51FD4 /* Constant.swift in Sources */,
 				F5190F04209227C000C51FD4 /* MainRouter.swift in Sources */,
 				F5190F0D2092B89200C51FD4 /* RootRouter.swift in Sources */,
@@ -669,6 +680,7 @@
 				F5190EFD20921F9200C51FD4 /* MainCollectionViewCell.swift in Sources */,
 				F5190F0F2092B96400C51FD4 /* RootContractor.swift in Sources */,
 				F5190ED92090BF0800C51FD4 /* ExtensionString.swift in Sources */,
+				F5190F192092E86100C51FD4 /* ImageLoader.swift in Sources */,
 				F5190F02209227A700C51FD4 /* MainInteractor.swift in Sources */,
 				F5190EF920921B2100C51FD4 /* MainTableViewCell.swift in Sources */,
 				F5190EE72090D7DC00C51FD4 /* GetTouristSpotApi.swift in Sources */,

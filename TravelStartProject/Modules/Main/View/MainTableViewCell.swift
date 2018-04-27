@@ -17,7 +17,7 @@ class MainTableViewCell: UITableViewCell {
     
     //MARK: Variables
     fileprivate var model: TouristSpotModel!
-    fileprivate var photos: [UIImage] = []
+    fileprivate var urls: [URL]?
     
     //MARK: Constant
     fileprivate let spacing: CGFloat = 10
@@ -59,7 +59,7 @@ class MainTableViewCell: UITableViewCell {
         
         title_Label.text = model.stitle
         content_TextView.text = model.content
-        
+        urls = model.photoURL
     }
     
 }
@@ -69,7 +69,7 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return photos.count
+        return urls?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -78,7 +78,7 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             let cell = photo_CollectionView.dequeueReusableCell(withReuseIdentifier: .mainCollectionViewCellId, for: indexPath) as? MainCollectionViewCell
             else { fatalError(" cannot cast mainCollectionViewCell ") }
         
-        
+        cell.setUpCell( urls?[indexPath.item] )
         
         return cell
     }

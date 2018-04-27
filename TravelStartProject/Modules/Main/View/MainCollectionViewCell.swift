@@ -10,17 +10,26 @@ import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
 
-    
-    @IBOutlet weak var img_ImageView: UIImageView!
+    @IBOutlet weak var imageLoader: ImageLoader!
     
     override func awakeFromNib()
     {
         super.awakeFromNib()
     }
     
-    public func setUpCell(_ image: UIImage)
+    public func setUpCell(_ url: URL?)
     {
-        img_ImageView.image = image
+        configureImageLoader()
+    
+        imageLoader.loadImageWithUrl(url)
+        
+    }
+    
+    private func configureImageLoader()
+    {
+        imageLoader.contentMode = .scaleAspectFit
+        
+        imageLoader.clipsToBounds = true
     }
 
 }

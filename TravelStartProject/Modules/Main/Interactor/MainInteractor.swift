@@ -25,13 +25,13 @@ class MainInteractor: MainUseCase {
             
         }, successHandler: { [unowned self] (models) in
             
-            print (" @@@@@ fetch data successHandler ")
+            print (" @@@@@ fetch data successHandler : Offset = \(self.offset)")
             
             self.output.dataFetchedSuccessfully(models)
             
-        }, errorHandler: { (error) in
+        }, errorHandler: { [unowned self] (error) in
             
-            print (" @@@@@ fetch data errorHandler ")
+            print (" @@@@@ fetch data errorHandler : Offset = \(self.offset) ")
             
             self.output.dataFetchedFailed()
             
