@@ -119,7 +119,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         presenter.itemDidSelect(model)
     }
-    
-    
-    
 }

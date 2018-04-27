@@ -28,10 +28,13 @@ extension UIColor {
     public convenience init(hex_String: String)
     {
         let str = hex_String.replacingOccurrences(of: "#", with: "")
-        guard str.count == 6 else {
+        
+        guard str.count == 6
+            else {
             self.init(red_Int: 0, green_Int: 0, blue_Int: 0)
             return
         }
+        
         let scanner = Scanner(string: str)
         
         var hexNumber: UInt32 = 0
@@ -43,8 +46,11 @@ extension UIColor {
             let blue = Int((hexNumber & 0x0000ff))
             
             self.init(red_Int: red, green_Int: green, blue_Int: blue)
+            
         } else {
+            
             self.init(red_Int: 0, green_Int: 0, blue_Int: 0)
+            
         }
     }
     
