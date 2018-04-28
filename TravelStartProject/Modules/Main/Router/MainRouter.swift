@@ -18,7 +18,6 @@ var mainStoryBoard: UIStoryboard
 class MainRouter: MainWireframe
 {
     
-    
     var viewController: UIViewController?
     
     
@@ -55,7 +54,8 @@ class MainRouter: MainWireframe
     func presentNextView(with model: TouristSpotModel)
     {
         
-        
+        let detailRouteControl = DetailRouter.assembleModule()
+        viewController?.navigationController?.pushViewController(detailRouteControl, animated: true)
         
     }
     

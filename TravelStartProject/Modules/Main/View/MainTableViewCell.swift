@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MainTableViewCellDelegate: class {
+    func tableViewCellDidSelectPhoto(indexPath: IndexPath, selectedPhotoIndex: Int)
+}
+
 class MainTableViewCell: UITableViewCell {
     
     //MARK: IBOutlet
@@ -18,6 +22,9 @@ class MainTableViewCell: UITableViewCell {
     
     //MARK: Variables
     fileprivate var model: TouristSpotModel!
+    fileprivate var indexPath: IndexPath!
+    
+    weak var delegate: MainTableViewCellDelegate?
     
     //MARK: Constant
     fileprivate let spacing: CGFloat = 15
@@ -59,9 +66,10 @@ class MainTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCell(_ model: TouristSpotModel)
+    func setupCell(_ model: TouristSpotModel, indexPath: IndexPath)
     {
         self.model = model
+        self.indexPath = indexPath
         
         title_Label.text = model.stitle
         content_TextView.text = model.content
@@ -89,6 +97,10 @@ extension MainTableViewCell:  UICollectionViewDelegate, UICollectionViewDataSour
         cell.setUpCell( model.photoURL?[indexPath.item] )
 
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tableViewCellDidSelectPhoto(indexPath: self.indexPath, selectedPhotoIndex: indexPath.row)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat

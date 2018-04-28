@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     
     //MARK: Constants
     private let background_Color = UIColor(hex_String: "F6F6F6")
+    private let navigation_Color = UIColor(hex_String: "3EC1ED")
     fileprivate let spacing: CGFloat = 15
     fileprivate let insets: CGFloat = 0
     
@@ -33,6 +34,7 @@ class MainViewController: UIViewController {
     {
         super.viewDidLoad()
         configureTableView()
+        configureNavigation()
         presenter.viewDidLoad()
     }
 
@@ -52,6 +54,16 @@ class MainViewController: UIViewController {
         
         tableView.backgroundColor = background_Color
         tableView.separatorStyle = .none
+    }
+    
+    private func configureNavigation()
+    {
+        self.title = "台北市熱門景點"
+
+        let attributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = attributes
+        navigationController?.navigationBar.barTintColor = navigation_Color
+        
     }
 }
 
@@ -79,6 +91,16 @@ extension MainViewController: MainView {
     
 }
 
+extension MainViewController: MainTableViewCellDelegate {
+    
+    func tableViewCellDidSelectPhoto(indexPath: IndexPath, selectedPhotoIndex: Int)
+    {
+        let model = models[indexPath.row]
+        presenter.itemDidSelect(model)
+    }
+    
+}
+
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -100,7 +122,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let model = models[indexPath.row]
         
-        mainCell.setupCell(model)
+        mainCell.setupCell(model, indexPath: indexPath)
         mainCell.selectionStyle = .none
 
         return mainCell

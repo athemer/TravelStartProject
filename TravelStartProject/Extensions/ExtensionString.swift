@@ -15,7 +15,9 @@ extension String {
     public static let mainTableViewCellId = "MainTableViewCell"
     public static let mainCollectionViewCellId = "MainCollectionViewCell"
     public static let mainStoryboard = "Main"
+    public static let detailStoryboard = "Detail"
     public static let mainViewController = "MainViewController"
+    public static let detailViewController = "DetailViewController"
     
     func convertToURL() -> [URL]?
     {
