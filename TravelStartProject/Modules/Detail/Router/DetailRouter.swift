@@ -17,7 +17,7 @@ class DetailRouter: DetailWireframe {
     
     var viewController: UIViewController?
     
-    static func assembleModule() -> UIViewController {
+    static func assembleModule(with model: TouristSpotModel, index: Int) -> UIViewController {
         guard
             let view: DetailViewController = detailStoryBoard.instantiateViewController(withIdentifier: .detailViewController) as? DetailViewController
             else {
@@ -33,6 +33,9 @@ class DetailRouter: DetailWireframe {
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
+        
+        presenter.index = index
+        presenter.model = model
         
         interactor.output = presenter
         router.viewController = view

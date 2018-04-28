@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		64743BD7C9B962DAA89E1BA7 /* Pods_TravelStartProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D618B7BE0426CF8A4378D8B6 /* Pods_TravelStartProject.framework */; };
 		A0E76595B88CB67C8F8B06CA /* Pods_TravelStartProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CF762F8D2E0FB29B738826 /* Pods_TravelStartProjectUITests.framework */; };
+		F510D406209431CD00B9EF22 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510D404209431CD00B9EF22 /* DetailCollectionViewCell.swift */; };
+		F510D407209431CD00B9EF22 /* DetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F510D405209431CD00B9EF22 /* DetailCollectionViewCell.xib */; };
 		F5190EA52090B69600C51FD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EA42090B69600C51FD4 /* AppDelegate.swift */; };
 		F5190EA72090B69600C51FD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EA62090B69600C51FD4 /* ViewController.swift */; };
 		F5190EAA2090B69600C51FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5190EA82090B69600C51FD4 /* Main.storyboard */; };
@@ -79,6 +81,8 @@
 		D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelStartProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D618B7BE0426CF8A4378D8B6 /* Pods_TravelStartProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelStartProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11342652EFD6F540EA91AA4 /* Pods-TravelStartProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelStartProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelStartProject/Pods-TravelStartProject.debug.xcconfig"; sourceTree = "<group>"; };
+		F510D404209431CD00B9EF22 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		F510D405209431CD00B9EF22 /* DetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		F5190EA12090B69600C51FD4 /* TravelStartProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelStartProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5190EA42090B69600C51FD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5190EA62090B69600C51FD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -418,6 +422,8 @@
 				F5190F3020938B5300C51FD4 /* Detail.storyboard */,
 				F5190F242093881000C51FD4 /* DetailTableViewCell.swift */,
 				F5190F252093881000C51FD4 /* DetailTableViewCell.xib */,
+				F510D404209431CD00B9EF22 /* DetailCollectionViewCell.swift */,
+				F510D405209431CD00B9EF22 /* DetailCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -573,6 +579,7 @@
 				F5190EDF2090CB2500C51FD4 /* Info.plist in Resources */,
 				F5190EFE20921F9200C51FD4 /* MainCollectionViewCell.xib in Resources */,
 				F5190EAF2090B69600C51FD4 /* LaunchScreen.storyboard in Resources */,
+				F510D407209431CD00B9EF22 /* DetailCollectionViewCell.xib in Resources */,
 				F5190F3120938B5300C51FD4 /* Detail.storyboard in Resources */,
 				F5190EAC2090B69600C51FD4 /* Assets.xcassets in Resources */,
 				F5190EFA20921B2100C51FD4 /* MainTableViewCell.xib in Resources */,
@@ -744,6 +751,7 @@
 				F5190F172092D5C700C51FD4 /* ExtensionURL.swift in Sources */,
 				F5190F292093882F00C51FD4 /* DetailPresenter.swift in Sources */,
 				F5190F23209387F100C51FD4 /* DetailViewController.swift in Sources */,
+				F510D406209431CD00B9EF22 /* DetailCollectionViewCell.swift in Sources */,
 				F5190EE22090CD5F00C51FD4 /* Constant.swift in Sources */,
 				F5190F04209227C000C51FD4 /* MainRouter.swift in Sources */,
 				F5190F0D2092B89200C51FD4 /* RootRouter.swift in Sources */,

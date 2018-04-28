@@ -10,19 +10,28 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
     
-    
+    // MARK: IBOutlet
     @IBOutlet weak var title_Label: UILabel!
     @IBOutlet weak var content_TextView: UITextView!
     
-    override func awakeFromNib() {
+    
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
+    func setupCell(_ title: String, content: String)
+    {
+        
+        title_Label.text = title
+        content_TextView.text = content
+        
+    }
+
     
 }

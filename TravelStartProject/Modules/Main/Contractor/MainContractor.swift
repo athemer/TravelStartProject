@@ -29,7 +29,7 @@ protocol MainPresentation: class {
     
     func viewDidLoad()
     
-    func itemDidSelect(_ model: TouristSpotModel)
+    func itemDidSelect(_ model: TouristSpotModel, index: Int)
     
     func loadData(withOffset offset: Int)
     
@@ -40,7 +40,7 @@ protocol MainUseCase: class {
     
     var output: MainInteractorOutput! { get set }
     
-//    var offset: Int! { get set }
+    var offset: Int! { get set }
     
     func fetchData()
     
@@ -58,7 +58,7 @@ protocol MainWireframe: class {
     
     weak var viewController: UIViewController? { get set }
     
-    func presentNextView(with model: TouristSpotModel)
+    func presentNextView(with model: TouristSpotModel, index: Int)
     
     static func assembleModule() -> UIViewController
 }

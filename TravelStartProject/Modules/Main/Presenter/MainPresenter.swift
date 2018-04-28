@@ -9,6 +9,7 @@
 import Foundation
 
 class MainPresenter: MainPresentation {
+
     
     var view: MainView?
     
@@ -40,14 +41,14 @@ class MainPresenter: MainPresentation {
         interactor.fetchData()
     }
     
-    func itemDidSelect(_ model: TouristSpotModel)
+    func itemDidSelect(_ model: TouristSpotModel, index: Int)
     {
-        router.presentNextView(with: model)
+        router.presentNextView(with: model, index: index)
     }
     
     func loadData(withOffset offset: Int)
     {
-//        interactor.offset = offset
+        interactor.offset = offset
         interactor.fetchData()
     }
     

@@ -27,6 +27,10 @@ protocol DetailPresentation: class {
     
     var router: DetailWireframe! { get set }
     
+    var model: TouristSpotModel! { get set }
+    
+    var index: Int! { get set }
+    
     func viewDidLoad()
     
 }
@@ -51,6 +55,6 @@ protocol DetailWireframe: class {
     
     weak var viewController: UIViewController? { get set }
     
-    static func assembleModule() -> UIViewController
+    static func assembleModule(with model: TouristSpotModel, index: Int) -> UIViewController
     
 }

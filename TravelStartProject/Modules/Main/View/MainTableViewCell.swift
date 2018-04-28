@@ -95,7 +95,6 @@ extension MainTableViewCell:  UICollectionViewDelegate, UICollectionViewDataSour
             else { fatalError(" cannot cast mainCollectionViewCell ") }
 
         cell.setUpCell( model.photoURL?[indexPath.item] )
-
         return cell
     }
     

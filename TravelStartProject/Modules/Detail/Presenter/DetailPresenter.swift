@@ -16,6 +16,20 @@ class DetailPresenter: DetailPresentation {
     
     var router: DetailWireframe!
     
+    var index: Int!
+    
+    var model: TouristSpotModel! {
+        
+        didSet {
+
+            view?.showDetailView(model, photoIndex: index)
+
+        }
+        
+    }
+    
+    
+    
     func viewDidLoad() {
         
     }

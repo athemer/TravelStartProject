@@ -96,7 +96,7 @@ extension MainViewController: MainTableViewCellDelegate {
     func tableViewCellDidSelectPhoto(indexPath: IndexPath, selectedPhotoIndex: Int)
     {
         let model = models[indexPath.row]
-        presenter.itemDidSelect(model)
+        presenter.itemDidSelect(model, index: selectedPhotoIndex)
     }
     
 }
@@ -122,6 +122,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let model = models[indexPath.row]
         
+        mainCell.delegate = self
+        
         mainCell.setupCell(model, indexPath: indexPath)
         mainCell.selectionStyle = .none
 
@@ -130,9 +132,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
-//        guard indexPath.row > offset else { return }
-//        offset = offset + 10
-//        presenter.loadData(withOffset: offset + 10)
+        
+        
+//        print (" @@@@@ WILL DISPLAY indexpath ", indexPath.row )
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
@@ -143,13 +145,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        let model = models[indexPath.row]
-        
-        presenter.itemDidSelect(model)
     }
 }
 
