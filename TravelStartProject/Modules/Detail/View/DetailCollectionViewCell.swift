@@ -33,7 +33,7 @@ class DetailCollectionViewCell: UICollectionViewCell {
     
     private func configureImageLoader()
     {
-        imageLoader.contentMode = .scaleToFill
+        imageLoader.contentMode = .scaleAspectFill
         
         imageLoader.clipsToBounds = true
     }

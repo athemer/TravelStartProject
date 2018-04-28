@@ -65,9 +65,6 @@
                             <constraint firstAttribute="height" constant="8" id="wlA-ZY-2tb"/>
                         </constraints>
                     </view>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xhc-52-XsH">
-                        <rect key="frame" x="146" y="448.5" width="39" height="37"/>
-                    </pageControl>
                 </subviews>
                 <constraints>
                     <constraint firstItem="QLn-F2-HUd" firstAttribute="trailing" secondItem="cUc-70-fRR" secondAttribute="trailing" id="5ER-8b-zbE"/>
@@ -78,13 +75,11 @@
                     <constraint firstItem="gQ3-f0-05d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NZx-KU-CG2"/>
                     <constraint firstItem="4L7-Da-Nhe" firstAttribute="trailing" secondItem="QLn-F2-HUd" secondAttribute="trailing" id="Nzo-AX-C9b"/>
                     <constraint firstItem="QLn-F2-HUd" firstAttribute="leading" secondItem="cUc-70-fRR" secondAttribute="leading" id="Whp-MD-zz6"/>
-                    <constraint firstItem="xhc-52-XsH" firstAttribute="centerX" secondItem="4L7-Da-Nhe" secondAttribute="centerX" id="bkv-kw-Prs"/>
                     <constraint firstAttribute="trailing" secondItem="Gzf-WK-E5R" secondAttribute="trailing" id="cfQ-Pw-VIl"/>
                     <constraint firstItem="gQ3-f0-05d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cyU-Cj-35E"/>
                     <constraint firstItem="cUc-70-fRR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="fee-9M-4oX"/>
                     <constraint firstItem="4L7-Da-Nhe" firstAttribute="top" secondItem="QLn-F2-HUd" secondAttribute="bottom" constant="10" id="ohv-A9-2ec"/>
                     <constraint firstItem="Gzf-WK-E5R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vFJ-u8-arn"/>
-                    <constraint firstItem="xhc-52-XsH" firstAttribute="bottom" secondItem="4L7-Da-Nhe" secondAttribute="bottom" id="vym-AB-lK8"/>
                     <constraint firstAttribute="trailing" secondItem="gQ3-f0-05d" secondAttribute="trailing" id="x7M-2M-wwS"/>
                     <constraint firstAttribute="trailing" secondItem="cUc-70-fRR" secondAttribute="trailing" constant="15" id="xQT-7d-AvI"/>
                     <constraint firstAttribute="bottom" secondItem="4L7-Da-Nhe" secondAttribute="bottom" constant="15" id="yaa-kC-AWu"/>
@@ -93,7 +88,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="content_TextView" destination="QLn-F2-HUd" id="ba1-jQ-2HA"/>
-                <outlet property="pageControl" destination="xhc-52-XsH" id="5b8-GD-B3L"/>
                 <outlet property="photo_CollectionView" destination="4L7-Da-Nhe" id="8f2-7g-AaX"/>
                 <outlet property="title_Label" destination="cUc-70-fRR" id="wTt-yy-MMj"/>
             </connections>

@@ -15,6 +15,8 @@ class DetailViewController: UIViewController  {
     //MARK: Variables
     var presenter: DetailPresentation!
     
+    var hegiht_Constraint_Constant: CGFloat!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var image_base_View: UIView!
@@ -22,6 +24,10 @@ class DetailViewController: UIViewController  {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var base_View_Height_Constraint: NSLayoutConstraint!
+    
+    
     
     //MARK: Constant
     private let navigation_Color = UIColor(hex_String: "3EC1ED")
@@ -47,6 +53,7 @@ class DetailViewController: UIViewController  {
         configureCollectionView()
         configureNavigation()
         configurePageControl()
+        bindConstraintConstant()
         presenter.viewDidLoad()
         scroll()
     }
@@ -75,13 +82,19 @@ class DetailViewController: UIViewController  {
         collectionView.register(nib, forCellWithReuseIdentifier: .detailCollectionViewCellId)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.allowsSelection = false
     }
 
-    private func configurePageControl(){
+    private func configurePageControl()
+    {
         pageControl.numberOfPages = model.photoURL?.count ?? 0
+    }
+    
+    private func bindConstraintConstant()
+    {
+        self.hegiht_Constraint_Constant = self.base_View_Height_Constraint.constant
     }
     
     private func configureNavigation()
@@ -99,6 +112,22 @@ class DetailViewController: UIViewController  {
     private func createContentArray()
     {
         content_array = [ model.stitle, model.location, model.content ]
+    }
+    
+    fileprivate func layoutBaseView(with offset: CGFloat)
+    {
+        if offset < 0 {
+            
+            self.base_View_Height_Constraint.constant += -offset
+            
+        } else if offset > 0 && base_View_Height_Constraint.constant > hegiht_Constraint_Constant {
+            
+            self.base_View_Height_Constraint.constant += -offset
+            
+        }
+        
+        view.layoutIfNeeded()
+        
     }
     
 }
@@ -198,7 +227,19 @@ extension DetailViewController:  UICollectionViewDelegate, UICollectionViewDataS
     
     func scrollViewDidScroll(_ scrollView: UIScrollView)
     {
-        pageControl.currentPage = Int( scrollView.contentOffset.x / self.collectionView.frame.width )
+        
+        switch scrollView {
+        case tableView:
+            print ("TABLEVIEW")
+            layoutBaseView(with: tableView.contentOffset.y)
+            
+        case collectionView:
+            print ("COLLECTIONVIEW")
+            pageControl.currentPage = Int( scrollView.contentOffset.x / self.collectionView.frame.width )
+        default:
+            break
+        }
+        
     }
     
     

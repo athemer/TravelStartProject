@@ -300,8 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				F5190F1C209387A600C51FD4 /* Detail */,
-				F5190F0B2092B87A00C51FD4 /* Root */,
 				F5190EF020921A3700C51FD4 /* Main */,
+				F5190F0B2092B87A00C51FD4 /* Root */,
 				F5190EEF20921A2C00C51FD4 /* Navigation */,
 			);
 			path = Modules;

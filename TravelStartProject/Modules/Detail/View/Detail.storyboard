@@ -64,6 +64,7 @@
                         <viewLayoutGuide key="safeArea" id="sEg-J1-HsQ"/>
                     </view>
                     <connections>
+                        <outlet property="base_View_Height_Constraint" destination="Ez4-4T-Xre" id="cCy-Je-9lw"/>
                         <outlet property="collectionView" destination="yaQ-n1-Y8j" id="Tqm-qr-d9W"/>
                         <outlet property="image_base_View" destination="tcC-1e-ncg" id="c5Y-8S-Jpm"/>
                         <outlet property="pageControl" destination="KYF-4G-Kf2" id="AJn-bS-xnh"/>
