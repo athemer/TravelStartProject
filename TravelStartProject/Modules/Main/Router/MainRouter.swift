@@ -38,14 +38,12 @@ class MainRouter: MainWireframe
         let navigationController = UINavigationController.init(rootViewController: view)
         
         view.presenter = presenter
-//        view.offset = 0
         
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         
         interactor.output = presenter
-        interactor.offset = 0
         
         router.viewController = view
         

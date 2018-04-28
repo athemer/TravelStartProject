@@ -15,8 +15,6 @@ class MainViewController: UIViewController {
     
     var presenter: MainPresentation!
     
-    var offset: Int = 0
-    
     //MARK: Constants
     private let background_Color = UIColor(hex_String: "F6F6F6")
     private let navigation_Color = UIColor(hex_String: "3EC1ED")
@@ -36,6 +34,12 @@ class MainViewController: UIViewController {
         configureTableView()
         configureNavigation()
         presenter.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        self.title = "台北市熱門景點"
     }
 
     override func didReceiveMemoryWarning()
@@ -86,7 +90,7 @@ extension MainViewController: MainView {
     
     func showMainData(_ models: [TouristSpotModel])
     {
-        self.models = models
+        self.models = self.models + models
     }
     
 }
@@ -96,6 +100,7 @@ extension MainViewController: MainTableViewCellDelegate {
     func tableViewCellDidSelectPhoto(indexPath: IndexPath, selectedPhotoIndex: Int)
     {
         let model = models[indexPath.row]
+        self.title = ""
         presenter.itemDidSelect(model, index: selectedPhotoIndex)
     }
     
@@ -133,8 +138,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         
+        guard indexPath.row >= models.count - 1 else { return }
+        presenter.loadData(withOffset: models.count)
         
-//        print (" @@@@@ WILL DISPLAY indexpath ", indexPath.row )
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat

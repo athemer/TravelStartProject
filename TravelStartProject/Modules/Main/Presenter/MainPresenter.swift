@@ -38,7 +38,7 @@ class MainPresenter: MainPresentation {
     func viewDidLoad()
     {
         view?.showActivityIndicator()
-        interactor.fetchData()
+        interactor.fetchData(with: 0)
     }
     
     func itemDidSelect(_ model: TouristSpotModel, index: Int)
@@ -48,8 +48,7 @@ class MainPresenter: MainPresentation {
     
     func loadData(withOffset offset: Int)
     {
-        interactor.offset = offset
-        interactor.fetchData()
+        interactor.fetchData(with: offset)
     }
     
 

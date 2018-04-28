@@ -40,9 +40,7 @@ protocol MainUseCase: class {
     
     var output: MainInteractorOutput! { get set }
     
-    var offset: Int! { get set }
-    
-    func fetchData()
+    func fetchData(with offset: Int)
     
 }
 

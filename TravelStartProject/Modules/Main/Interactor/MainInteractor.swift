@@ -12,9 +12,7 @@ class MainInteractor: MainUseCase {
 
     var output: MainInteractorOutput!
     
-    var offset: Int!
-    
-    func fetchData()
+    func fetchData(with offset: Int)
     {
         
         let manager = TouristSpotManager()
@@ -26,13 +24,13 @@ class MainInteractor: MainUseCase {
             
         }, successHandler: { [unowned self] (models) in
             
-            print (" @@@@@ fetch data successHandler : Offset = \(self.offset)")
+            print (" @@@@@ fetch data successHandler : Offset = \(offset)")
             
             self.output.dataFetchedSuccessfully(models)
             
         }, errorHandler: { [unowned self] (error) in
             
-            print (" @@@@@ fetch data errorHandler : Offset = \(self.offset) ")
+            print (" @@@@@ fetch data errorHandler : Offset = \(offset) ")
             
             self.output.dataFetchedFailed()
             

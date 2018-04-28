@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TravelStartProject/Modules/Detail/View/DetailViewController.swift"
-            timestampString = "546598994.599102"
+            filePath = "TravelStartProject/Data/DataLoader.swift"
+            timestampString = "546601493.486612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "scroll()"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "exchange(inBackground:requestBlock:preSendHandler:successHandler:errorHandler:finalHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

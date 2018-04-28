@@ -13,7 +13,7 @@ struct TouristSpotModel: Codable {
     var stitle: String
     var content: String
     var location: String
-    var information: String
+    var information: String?
     var photos: String?
     
     var photoURL: [URL]? {

@@ -47,6 +47,7 @@ class TouristSpotManager {
                 
             } catch {
                 
+                print (" @@@@@ PARSE ERROR ")
                 errorHandler(.parseError)
                 
             }
