@@ -231,7 +231,7 @@ extension DetailViewController:  UICollectionViewDelegate, UICollectionViewDataS
         switch scrollView {
         case tableView:
             print ("TABLEVIEW")
-            layoutBaseView(with: tableView.contentOffset.y)
+//            layoutBaseView(with: tableView.contentOffset.y)
             
         case collectionView:
             print ("COLLECTIONVIEW")
