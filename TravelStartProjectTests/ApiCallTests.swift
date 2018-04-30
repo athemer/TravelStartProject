@@ -24,7 +24,7 @@ class ApiCallTests: XCTestCase {
                      finalHandler: @escaping (_ isReachable: Bool) -> Void)
         {
 
-            if success
+            if success || result != nil
             {
                 successHandler(result)
                 
@@ -81,13 +81,14 @@ class ApiCallTests: XCTestCase {
         
         let promise = self.expectation(description: "Result is nil and return nil")
         
-        fakeGetTouristSpotApi?.execute(success: false, preSendHandler: { (Bool) in
+        fakeGetTouristSpotApi?.execute(success: true, preSendHandler: { (Bool) in
             
         }, successHandler: { (result) in
             
             result == nil ? promise.fulfill() : XCTFail(" Result is nil and return data ")
             
         }, errorHandler: { (error) in
+    
             
         }, finalHandler: { (Bool) in
             
@@ -95,6 +96,28 @@ class ApiCallTests: XCTestCase {
         
         self.waitForExpectations(timeout: 10, handler: nil)
     }
+    
+    func testErrorFailure()
+    {
+        fakeGetTouristSpotApi?.error = NetworkError.parseError
+        
+        let promise = self.expectation(description: "Fail to get data")
+        
+        fakeGetTouristSpotApi?.execute(success: false, preSendHandler: { (Bool) in
+            
+        }, successHandler: { (result) in
+            
+        }, errorHandler: { (error) in
+            
+            error != nil ? promise.fulfill() : XCTFail(" have error but return nonerror ")
+            
+        }, finalHandler: { (Bool) in
+            
+        })
+        
+        self.waitForExpectations(timeout: 10, handler: nil)
+    }
+
     
     
 }

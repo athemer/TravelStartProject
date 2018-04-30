@@ -20,7 +20,8 @@ class DetailPresenter: DetailPresentation {
     
     var model: TouristSpotModel! {
         
-        didSet {
+        didSet
+        {
 
             view?.showDetailView(model, photoIndex: index)
 

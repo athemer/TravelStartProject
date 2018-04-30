@@ -44,6 +44,7 @@ class ImageLoader: UIImageView {
         if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage
         {
             self.image = imageFromCache
+            
             activityIndicator.stopAnimating()
             return
             

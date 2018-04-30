@@ -22,7 +22,6 @@
 		F5190ED92090BF0800C51FD4 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190ED82090BF0800C51FD4 /* ExtensionString.swift */; };
 		F5190EDB2090C85900C51FD4 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EDA2090C85900C51FD4 /* DataLoader.swift */; };
 		F5190EDD2090C89700C51FD4 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EDC2090C89700C51FD4 /* RequestToken.swift */; };
-		F5190EDF2090CB2500C51FD4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5190EDE2090CB2500C51FD4 /* Info.plist */; };
 		F5190EE42090CD8C00C51FD4 /* ExtensionNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE32090CD8C00C51FD4 /* ExtensionNotificationCenter.swift */; };
 		F5190EE72090D7DC00C51FD4 /* GetTouristSpotApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE62090D7DC00C51FD4 /* GetTouristSpotApi.swift */; };
 		F5190EE92090D96D00C51FD4 /* TouristSpotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190EE82090D96D00C51FD4 /* TouristSpotManager.swift */; };
@@ -54,6 +53,12 @@
 		F5E39AF52095687D006D8D63 /* ExtensionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39AF42095687C006D8D63 /* ExtensionStringTests.swift */; };
 		F5E39AF720956D17006D8D63 /* ExtensionUIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39AF620956D17006D8D63 /* ExtensionUIColorTests.swift */; };
 		F5E39AF920957351006D8D63 /* ApiCallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39AF820957351006D8D63 /* ApiCallTests.swift */; };
+		F5E39AFB2095B87B006D8D63 /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39AFA2095B87B006D8D63 /* ImageCacheTests.swift */; };
+		F5E39B01209623B4006D8D63 /* MainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39B00209623B4006D8D63 /* MainPresenterTests.swift */; };
+		F5E39B03209623D1006D8D63 /* MockMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39B02209623D1006D8D63 /* MockMainInteractor.swift */; };
+		F5E39B05209623E1006D8D63 /* MockMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39B04209623E1006D8D63 /* MockMainView.swift */; };
+		F5E39B07209627F5006D8D63 /* MockMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39B06209627F5006D8D63 /* MockMainPresenter.swift */; };
+		F5E39B0920962895006D8D63 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39B0820962895006D8D63 /* MockRouter.swift */; };
 		FCFC3B0DD23C7C95D1538329 /* Pods_TravelStartProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47EC76F9A9341907201EC5A /* Pods_TravelStartProjectTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +139,12 @@
 		F5E39AF42095687C006D8D63 /* ExtensionStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStringTests.swift; sourceTree = "<group>"; };
 		F5E39AF620956D17006D8D63 /* ExtensionUIColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColorTests.swift; sourceTree = "<group>"; };
 		F5E39AF820957351006D8D63 /* ApiCallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallTests.swift; sourceTree = "<group>"; };
+		F5E39AFA2095B87B006D8D63 /* ImageCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
+		F5E39B00209623B4006D8D63 /* MainPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTests.swift; sourceTree = "<group>"; };
+		F5E39B02209623D1006D8D63 /* MockMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainInteractor.swift; sourceTree = "<group>"; };
+		F5E39B04209623E1006D8D63 /* MockMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainView.swift; sourceTree = "<group>"; };
+		F5E39B06209627F5006D8D63 /* MockMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainPresenter.swift; sourceTree = "<group>"; };
+		F5E39B0820962895006D8D63 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +241,9 @@
 		F5190EB82090B69700C51FD4 /* TravelStartProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				F5E39AFC20961F8B006D8D63 /* ModuleTests */,
 				F5190EB92090B69700C51FD4 /* TravelStartProjectTests.swift */,
+				F5E39AFA2095B87B006D8D63 /* ImageCacheTests.swift */,
 				F5E39AF2209567A1006D8D63 /* DataLoaderTests.swift */,
 				F5E39AF820957351006D8D63 /* ApiCallTests.swift */,
 				F5E39AF42095687C006D8D63 /* ExtensionStringTests.swift */,
@@ -461,6 +474,26 @@
 			path = Contractor;
 			sourceTree = "<group>";
 		};
+		F5E39AFC20961F8B006D8D63 /* ModuleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5E39AFD20961F95006D8D63 /* Main */,
+			);
+			path = ModuleTests;
+			sourceTree = "<group>";
+		};
+		F5E39AFD20961F95006D8D63 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F5E39B00209623B4006D8D63 /* MainPresenterTests.swift */,
+				F5E39B02209623D1006D8D63 /* MockMainInteractor.swift */,
+				F5E39B06209627F5006D8D63 /* MockMainPresenter.swift */,
+				F5E39B04209623E1006D8D63 /* MockMainView.swift */,
+				F5E39B0820962895006D8D63 /* MockRouter.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -577,7 +610,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5190EDF2090CB2500C51FD4 /* Info.plist in Resources */,
 				F5190EFE20921F9200C51FD4 /* MainCollectionViewCell.xib in Resources */,
 				F5190EAF2090B69600C51FD4 /* LaunchScreen.storyboard in Resources */,
 				F510D407209431CD00B9EF22 /* DetailCollectionViewCell.xib in Resources */,
@@ -785,10 +817,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E39B07209627F5006D8D63 /* MockMainPresenter.swift in Sources */,
 				F5E39AF3209567A1006D8D63 /* DataLoaderTests.swift in Sources */,
 				F5E39AF920957351006D8D63 /* ApiCallTests.swift in Sources */,
+				F5E39B0920962895006D8D63 /* MockRouter.swift in Sources */,
 				F5190EBA2090B69700C51FD4 /* TravelStartProjectTests.swift in Sources */,
 				F5E39AF52095687D006D8D63 /* ExtensionStringTests.swift in Sources */,
+				F5E39AFB2095B87B006D8D63 /* ImageCacheTests.swift in Sources */,
+				F5E39B05209623E1006D8D63 /* MockMainView.swift in Sources */,
+				F5E39B03209623D1006D8D63 /* MockMainInteractor.swift in Sources */,
+				F5E39B01209623B4006D8D63 /* MainPresenterTests.swift in Sources */,
 				F5E39AF720956D17006D8D63 /* ExtensionUIColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,7 +987,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7ACRS83M5;
+				DEVELOPMENT_TEAM = 73GBZ239BR;
 				INFOPLIST_FILE = TravelStartProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -966,7 +1004,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7ACRS83M5;
+				DEVELOPMENT_TEAM = 73GBZ239BR;
 				INFOPLIST_FILE = TravelStartProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

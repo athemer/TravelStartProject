@@ -16,8 +16,8 @@ class MainViewController: UIViewController {
     var presenter: MainPresentation!
     
     //MARK: Constants
-    private weak var background_Color = UIColor(hex_String: "F6F6F6")
-    private weak var navigation_Color = UIColor(hex_String: "3EC1ED")
+    var background_Color = UIColor(hex_String: "F6F6F6")
+    var navigation_Color = UIColor(hex_String: "3EC1ED")
     fileprivate let spacing: CGFloat = 15
     fileprivate let insets: CGFloat = 0
     
