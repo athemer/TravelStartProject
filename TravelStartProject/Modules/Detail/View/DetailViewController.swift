@@ -15,31 +15,30 @@ class DetailViewController: UIViewController  {
     //MARK: Variables
     var presenter: DetailPresentation!
     
-    var hegiht_Constraint_Constant: CGFloat!
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var image_base_View: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var pageControl: UIPageControl!
     
-    @IBOutlet weak var base_View_Height_Constraint: NSLayoutConstraint!
+    var collectionViewTopConstraint: NSLayoutConstraint?
     
+    var collectionViewHeightConstraint: NSLayoutConstraint?
+    
+    var model: TouristSpotModel! {
+        didSet
+        {
+            createContentArray()
+        }
+    }
+    
+    var photoIndex: Int?
     
     
     //MARK: Constant
     private let navigation_Color = UIColor(hex_String: "3EC1ED")
     
-    var model: TouristSpotModel! {
-        didSet
-        {
-           createContentArray()
-        }
-    }
-    
-    var photoIndex: Int?
+    let collectionViewHeight: CGFloat = 200.0
     
     let title_array: [String] = ["景點名稱", "景點地址", "景點介紹"]
     
@@ -49,13 +48,21 @@ class DetailViewController: UIViewController  {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         configureTableView()
         configureCollectionView()
+        configurePageControlLayout()
+        
         configureNavigation()
         configurePageControl()
-        bindConstraintConstant()
+        
         presenter.viewDidLoad()
         scroll()
+    }
+
+    override func viewWillAppear(_ animated: Bool)
+    {
+        collectionView.reloadData()
     }
     
     private func scroll(){
@@ -73,7 +80,25 @@ class DetailViewController: UIViewController  {
         
         tableView.allowsSelection = false
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        tableView.contentInset = UIEdgeInsets(top: collectionViewHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentOffset = CGPoint(x: 0, y: -collectionViewHeight)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+    
+    private func configurePageControlLayout()
+    {
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: -10).isActive = true
+    }
+    
+
     
     private func configureCollectionView()
     {
@@ -85,16 +110,20 @@ class DetailViewController: UIViewController  {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.allowsSelection = false
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: view.topAnchor)
+        collectionViewTopConstraint?.isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionViewHeightConstraint = collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight)
+        collectionViewHeightConstraint?.isActive = true
+        
     }
 
     private func configurePageControl()
     {
         pageControl.numberOfPages = model.photoURL?.count ?? 0
-    }
-    
-    private func bindConstraintConstant()
-    {
-        self.hegiht_Constraint_Constant = self.base_View_Height_Constraint.constant
     }
     
     private func configureNavigation()
@@ -114,22 +143,44 @@ class DetailViewController: UIViewController  {
         content_array = [ model.stitle, model.location, model.content ]
     }
     
-    fileprivate func layoutBaseView(with offset: CGFloat)
+    func changeImageViewTopConstraint(contentOffset: CGPoint)
     {
-        if offset < 0 {
-            
-            self.base_View_Height_Constraint.constant += -offset
-            
-        } else if offset > 0 && base_View_Height_Constraint.constant > hegiht_Constraint_Constant {
-            
-            self.base_View_Height_Constraint.constant += -offset
-            
-        }
+        
+        collectionViewTopConstraint?.isActive = false
+        
+        collectionViewHeightConstraint?.isActive = false
+        
+        collectionViewTopConstraint = collectionView.topAnchor.constraint(
+            equalTo: view.topAnchor,
+            constant: -(contentOffset.y - (-collectionViewHeight))
+        )
+        
+        collectionViewHeightConstraint = collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight)
+        
+        collectionViewTopConstraint?.isActive = true
+        
+        collectionViewHeightConstraint?.isActive = true
         
         view.layoutIfNeeded()
-        
     }
     
+    func changeImageViewHeightConstraint(contentOffset: CGPoint)
+    {
+        
+        collectionViewTopConstraint?.isActive = false
+        
+        collectionViewHeightConstraint?.isActive = false
+        
+        collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: view.topAnchor)
+        
+        collectionViewHeightConstraint = collectionView.heightAnchor.constraint(equalToConstant: -contentOffset.y)
+        
+        collectionViewTopConstraint?.isActive = true
+        
+        collectionViewHeightConstraint?.isActive = true
+        
+        view.layoutIfNeeded()
+    }
 }
 
 extension DetailViewController: DetailView {
@@ -222,16 +273,22 @@ extension DetailViewController:  UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView)
     {
-        
         switch scrollView {
         case tableView:
-            print ("TABLEVIEW")
-//            layoutBaseView(with: tableView.contentOffset.y)
+
+            if (scrollView.contentOffset.y > -collectionViewHeight) && (scrollView.contentOffset.y < 20)
+            {
+                changeImageViewTopConstraint(contentOffset: scrollView.contentOffset)
+                
+            } else if scrollView.contentOffset.y <= -collectionViewHeight {
+                
+                changeImageViewHeightConstraint(contentOffset: scrollView.contentOffset)
+            }
             
         case collectionView:
             print ("COLLECTIONVIEW")

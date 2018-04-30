@@ -74,28 +74,18 @@ public class BaseApi {
                          errorHandler: @escaping (_ error: NetworkError) -> Void,
                          finalHandler: @escaping (_ isReachable: Bool) -> Void)
     {
-    
-        let isReachable: Bool = self.isReachable()
-        
-        preSendHandler(isReachable)
-        
-        if !isReachable
-        {
-            sessionRequest.cancel()
-            finalHandler(isReachable)
-        }
         
         let request: BaseAlamofireRequest = BaseAlamofireRequest().initWithBlock { (request) in
             requestBlock(request)
         }
         
         let sessionManager: Alamofire.SessionManager = {
-
+            
             let configuration = URLSessionConfiguration.default
             configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
             configuration.timeoutIntervalForRequest = request.requestTimeout
             configuration.timeoutIntervalForResource = request.resourceTimeout
-
+            
             let manager = Alamofire.SessionManager(configuration: configuration,
                                                    delegate: SessionDelegate(),
                                                    serverTrustPolicyManager: nil)
@@ -103,14 +93,8 @@ public class BaseApi {
             return manager
         }()
         
-        self.sessionRequest = sessionManager.request(request.url!,
-                                                     method: request.method!,
-                                                     parameters: request.parameters,
-                                                     encoding: request.encoding,
-                                                     headers: request.headers)
-        
         let completionHandler: (DataResponse<Any>) -> Void = { (response) in
-
+            
             sessionManager.session.invalidateAndCancel()
             
             if let _ = response.result.error
@@ -126,6 +110,23 @@ public class BaseApi {
             }
         }
         
+    
+        self.sessionRequest = sessionManager.request(request.url!,
+                                                     method: request.method!,
+                                                     parameters: request.parameters,
+                                                     encoding: request.encoding,
+                                                     headers: request.headers)
+        
+        let isReachable: Bool = self.isReachable()
+        
+        preSendHandler(isReachable)
+        
+        if !isReachable
+        {
+            sessionRequest.cancel()
+            finalHandler(isReachable)
+        }
+
         if inBackground
         {
             let queue = DispatchQueue(label: .taskQueue, qos: .utility, attributes: [.concurrent])

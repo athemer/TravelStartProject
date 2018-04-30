@@ -16,6 +16,8 @@ protocol MainView: IndicatableView {
     func showNoContentScreen()
     
     func showMainData(_ models: [TouristSpotModel])
+    
+    func showNoInternetConnect()
 
 }
 
@@ -49,6 +51,8 @@ protocol MainInteractorOutput: class {
     func dataFetchedSuccessfully(_ models: [TouristSpotModel])
     
     func dataFetchedFailed()
+    
+    func noInternetConnect()
     
 }
 

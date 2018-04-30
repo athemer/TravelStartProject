@@ -18,8 +18,15 @@ class MainViewController: UIViewController {
     //MARK: Constants
     var background_Color = UIColor(hex_String: "F6F6F6")
     var navigation_Color = UIColor(hex_String: "3EC1ED")
+    
     fileprivate let spacing: CGFloat = 15
     fileprivate let insets: CGFloat = 0
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.color = .gray
+        return indicator
+    }()
     
     // MARK: DataSource
     var models: [TouristSpotModel] = [] {
@@ -76,11 +83,40 @@ extension MainViewController: MainView {
     func showActivityIndicator()
     {
         
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ])
     }
     
     func hideActivityIndicator()
     {
+        activityIndicator.removeFromSuperview()
+    }
+    
+    func showNoInternetConnect()
+    {
+        let alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得資料", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "重試", style: .cancel, handler: { action in
+            
+            switch action.style{
+            case .default:
+                print("default")
+                
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+                
+                
+            }}))
         
+        self.present(alert, animated: true, completion: nil)
     }
     
     func showNoContentScreen()

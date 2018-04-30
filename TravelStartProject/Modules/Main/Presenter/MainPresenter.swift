@@ -56,9 +56,15 @@ class MainPresenter: MainPresentation {
 
 extension MainPresenter: MainInteractorOutput {
     
+    func noInternetConnect()
+    {
+        view?.showNoInternetConnect()
+    }
+    
     func dataFetchedSuccessfully(_ models: [TouristSpotModel])
     {
         self.models = models
+        view?.hideActivityIndicator()
     }
     
     func dataFetchedFailed()

@@ -43,5 +43,25 @@ class MainPresenterTests: XCTestCase {
         
     }
     
+    func testFetchDataSuccessfully()
+    {
+        
+        let model = TouristSpotModel(stitle: "title", content: "content", location: "location", information: "info", photos: "photo")
+        
+        presenter.dataFetchedSuccessfully([model])
+        
+        XCTAssertTrue(view.mainDataShowed, "SUCCESSFULY SHOW Data")
+        
+    }
+    
+    func testIndicatorShowed()
+    {
+        
+        view.showActivityIndicator()
+        
+        XCTAssertTrue(view.activityIndicatorShowed, "SUCCESSFULY SHOW Data")
+        
+    }
+    
     
 }

@@ -21,6 +21,11 @@ class MainInteractor: MainUseCase {
                             preSendHandler: { (isReachable) in
                                 
                                 
+                                if !isReachable
+                                {
+                                    self.output.noInternetConnect()
+                                }
+                                
             
         }, successHandler: { [unowned self] (models) in
             

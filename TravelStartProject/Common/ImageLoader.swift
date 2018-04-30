@@ -55,7 +55,13 @@ class ImageLoader: UIImageView {
                 if error != nil
                 {
                     print(" error when downloading image ", error.debugDescription)
-                    self.activityIndicator.stopAnimating()
+                    
+                    DispatchQueue.main.async(execute: {
+                        
+                        self.activityIndicator.stopAnimating()
+                        
+                    })
+                    
                     return
                 }
                 

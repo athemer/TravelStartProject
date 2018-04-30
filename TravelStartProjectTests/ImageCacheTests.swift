@@ -18,10 +18,10 @@ class ImageCacheTests: XCTestCase {
 
     class FakeImageLoader: UIImageView {
         
-        func loadImageWithUrl(_ url: URL?) -> String
+        func loadImageWithUrl(_ url: URL?, completion: @escaping (_ result: String) -> Void)
         {
             
-            guard url != nil else { return "url does not exist"}
+            guard url != nil else { return }
             
             image = nil
 
@@ -29,7 +29,7 @@ class ImageCacheTests: XCTestCase {
             if let imageFromCache = fakeimageCache.object(forKey: url as AnyObject) as? UIImage
             {
                 self.image = imageFromCache
-                return "image exist in cache"
+                completion("Image exsit in cache")
                 
             } else {
                 
@@ -48,14 +48,13 @@ class ImageCacheTests: XCTestCase {
                         
                             self.image = imageToCache
                             
-                            
                             fakeimageCache.setObject(imageToCache, forKey: url as AnyObject)
                             
                         }
                     })
                 }).resume()
                 
-                return "cached downloaded image"
+                completion( "cached downloaded image")
             }
         }
     }
@@ -77,24 +76,30 @@ class ImageCacheTests: XCTestCase {
     func testImageCache()
     {
         
+        let expectation = self.expectation(description: " image cached succussfully ")
+        
         let url = URL(string: "http://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11001481.jpg")
         
-        if fakeImageLoader!.loadImageWithUrl(url) == "cached downloaded image"
-        {
+        
+        fakeImageLoader?.loadImageWithUrl(url, completion: { [unowned self] (string) in
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5 , execute: {
+            if string == "cached downloaded image"
+            {
                 
-                let isSuccess = self.fakeImageLoader!.loadImageWithUrl(url) == "cached downloaded image"
+                self.fakeImageLoader?.loadImageWithUrl(url, completion: { (str) in
+                    
+                    if str == "cached downloaded image" {
+                        expectation.fulfill()
+                    }
+                    
+                })
                 
-                XCTAssertTrue(isSuccess, "cache image successfully")
-                
-            })
+            }
             
-        } else {
-            
-            XCTFail("cache image fail")
-            
-        }
+        })
+        
+        
+        waitForExpectations(timeout: 5, handler: nil)
         
     }
     
