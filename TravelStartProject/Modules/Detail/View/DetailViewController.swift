@@ -162,6 +162,7 @@ class DetailViewController: UIViewController  {
         collectionViewHeightConstraint?.isActive = true
         
         view.layoutIfNeeded()
+        collectionView.reloadData()
     }
     
     func changeImageViewHeightConstraint(contentOffset: CGPoint)
@@ -180,6 +181,8 @@ class DetailViewController: UIViewController  {
         collectionViewHeightConstraint?.isActive = true
         
         view.layoutIfNeeded()
+
+        collectionView.reloadData()
     }
 }
 
@@ -273,7 +276,7 @@ extension DetailViewController:  UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {
-        return UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView)
@@ -291,7 +294,6 @@ extension DetailViewController:  UICollectionViewDelegate, UICollectionViewDataS
             }
             
         case collectionView:
-            print ("COLLECTIONVIEW")
             pageControl.currentPage = Int( scrollView.contentOffset.x / self.collectionView.frame.width )
         default:
             break
