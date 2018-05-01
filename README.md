@@ -8,5 +8,7 @@ For the structure of this project, please refer to the UML bellow
 
 Also, I went a liitle bit further for enhance user experience. something like :
 
-![gif](https://i.imgur.com/pNtGglq.gif)
+please make sure you run this project on device or simulators.
+
+For any feedback, you're welcome to open an issue to let me know.
 
