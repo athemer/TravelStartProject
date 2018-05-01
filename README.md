@@ -10,6 +10,8 @@ Also, I went a liitle bit further for enhance user experience. something like :
 
 ![Imgur](https://i.imgur.com/pNtGglq.gif)
 
+https://imgur.com/pNtGglq
+
 please make sure you run this project on device or simulators.
 
 For any feedback, you're welcome to open an issue to let me know.
