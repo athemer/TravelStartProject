@@ -10,7 +10,7 @@ Also, I went a liitle bit further for enhance user experience. something like :
 
 ![Imgur](https://i.imgur.com/pNtGglq.gif)
 
-https://imgur.com/pNtGglq
+(Here's the link to Gif just in case the preview fails to show : https://imgur.com/pNtGglq)
 
 please make sure you run this project on device or simulators.
 
