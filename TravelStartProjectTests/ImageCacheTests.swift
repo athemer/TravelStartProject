@@ -50,11 +50,12 @@ class ImageCacheTests: XCTestCase {
                             
                             fakeimageCache.setObject(imageToCache, forKey: url as AnyObject)
                             
+                            completion( "cached downloaded image")
                         }
                     })
                 }).resume()
                 
-                completion( "cached downloaded image")
+                
             }
         }
     }

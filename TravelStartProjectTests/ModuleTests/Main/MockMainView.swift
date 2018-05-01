@@ -14,6 +14,8 @@ import UIKit
 
 class MockMainView: MainView {
     
+    func showNoInternetConnect() {
+    }
     
     var presenter: MainPresentation!
     

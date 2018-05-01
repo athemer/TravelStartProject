@@ -66,6 +66,11 @@ class MockPresenter: MainPresentation {
 
 extension MockPresenter: MainInteractorOutput {
     
+    func noInternetConnect() {
+        
+    }
+    
+    
     func dataFetchedSuccessfully(_ models: [TouristSpotModel])
     {
         self.models = models
