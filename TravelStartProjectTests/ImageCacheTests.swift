@@ -89,7 +89,7 @@ class ImageCacheTests: XCTestCase {
                 
                 self.fakeImageLoader?.loadImageWithUrl(url, completion: { (str) in
                     
-                    if str == "cached downloaded image" {
+                    if str == "Image exsit in cache" {
                         expectation.fulfill()
                     }
                     
