@@ -18,6 +18,8 @@ protocol MainView: IndicatableView {
     func showMainData(_ models: [TouristSpotModel])
     
     func showNoInternetConnect()
+    
+    func showNoMoreDataToShowAlert()
 
 }
 

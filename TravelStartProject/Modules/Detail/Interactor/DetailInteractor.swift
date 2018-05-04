@@ -12,8 +12,4 @@ class DetailInteractor: DetailUseCase {
     
     var output: DetailInteractorOutput!
     
-    func fetchData()
-    {
-    }
-    
 }

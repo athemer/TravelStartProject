@@ -16,8 +16,8 @@ class MainViewController: UIViewController {
     var presenter: MainPresentation!
     
     //MARK: Constants
-    var background_Color = UIColor(hex_String: "F6F6F6")
-    var navigation_Color = UIColor(hex_String: "3EC1ED")
+    let background_Color = UIColor(hex_String: "F6F6F6")
+    let navigation_Color = UIColor(hex_String: "3EC1ED")
     
     fileprivate let spacing: CGFloat = 15
     fileprivate let insets: CGFloat = 0
@@ -28,9 +28,18 @@ class MainViewController: UIViewController {
         return indicator
     }()
     
+    lazy var reconnect_Button: UIButton = {
+       let btn = UIButton()
+        btn.setTitle("點按以重試", for: .normal)
+        btn.setTitleColor(navigation_Color, for: .normal)
+        btn.addTarget(nil, action: #selector(button_Action), for: .touchUpInside)
+        return btn
+    }()
+    
     // MARK: DataSource
     var models: [TouristSpotModel] = [] {
         didSet{
+            tableView.isHidden = false
             tableView.reloadData()
         }
     }
@@ -52,7 +61,6 @@ class MainViewController: UIViewController {
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-
     }
     
     private func configureTableView()
@@ -62,6 +70,8 @@ class MainViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: .mainTableViewCellId)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.isHidden = true
         
         tableView.backgroundColor = background_Color
         tableView.separatorStyle = .none
@@ -75,6 +85,29 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = attributes
         navigationController?.navigationBar.barTintColor = navigation_Color
         
+    }
+    
+    fileprivate func showReconnectButton()
+    {
+        reconnect_Button.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(reconnect_Button)
+        
+        NSLayoutConstraint.activate([
+            reconnect_Button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            reconnect_Button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ])
+    }
+    
+    @objc fileprivate func button_Action()
+    {
+        presenter.loadData(withOffset: models.count)
+        removeRecoonectButton()
+    }
+    
+    fileprivate func removeRecoonectButton()
+    {
+        reconnect_Button.removeFromSuperview()
     }
 }
 
@@ -91,6 +124,7 @@ extension MainViewController: MainView {
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             ])
+        
     }
     
     func hideActivityIndicator()
@@ -101,27 +135,46 @@ extension MainViewController: MainView {
     func showNoInternetConnect()
     {
         let alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得資料", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "重試", style: .cancel, handler: { action in
+        
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { [unowned self] action in
             
-            switch action.style{
-            case .default:
-                print("default")
-                
-            case .cancel:
-                print("cancel")
-                
-            case .destructive:
-                print("destructive")
-                
-                
-            }}))
+            guard self.models.count <= 0 else { return }
+            self.showReconnectButton()
+        
+        }))
+        
+        alert.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
+            
+            self.presenter.loadData(withOffset: self.models.count)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showNoMoreDataToShowAlert()
+    {
+        let alert = UIAlertController(title: "注意", message: "沒有更多資料囉", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "確認", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
     
     func showNoContentScreen()
     {
-        //Show no content View when no data to show
+        let label = UILabel()
+        label.text = "此 api 沒有回傳可顯示之資料"
+        label.font = UIFont(name: "PingFang TC", size: 16)
+        
+        view.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ])
     }
     
     func showMainData(_ models: [TouristSpotModel])
@@ -162,11 +215,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             else { fatalError(" cannot cast mainTableViewCell ") }
         
         let model = models[indexPath.row]
+        let viewModel = MainTableViewCellViewModel(model: model)
         
         mainCell.delegate = self
-        
-        mainCell.setupCell(model, indexPath: indexPath)
-        mainCell.selectionStyle = .none
+        mainCell.setupCell(viewModel, indexPath: indexPath)
 
         return mainCell
     }

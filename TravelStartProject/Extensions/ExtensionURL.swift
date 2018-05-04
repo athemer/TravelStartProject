@@ -12,8 +12,6 @@ import UIKit
 
 extension URL {
     
-    
-    
     func toCachedImage(url: String) -> UIImage?
     {
         return ImageCache(url: url).object(forKey: absoluteString as AnyObject) as? UIImage

@@ -22,29 +22,28 @@ class DetailPresenter: DetailPresentation {
         
         didSet
         {
-
             view?.showDetailView(model, photoIndex: index)
-
         }
         
     }
     
-    
-    
-    func viewDidLoad() {
-        
+    func viewDidLoad()
+    {
+        view?.showActivityIndicator()
     }
 
 }
 
 extension DetailPresenter: DetailInteractorOutput {
     
-    func detailDataGetSuccessfully(_ model: TouristSpotModel) {
-        
+    func detailDataGetSuccessfully(_ model: TouristSpotModel)
+    {
+        view?.hideActivityIndicator()
     }
     
-    func detailDataFetchFailed() {
-        
+    func detailDataFetchFailed()
+    {
+        view?.hideActivityIndicator()
     }
     
 }

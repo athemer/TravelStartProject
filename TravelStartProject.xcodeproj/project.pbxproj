@@ -48,6 +48,7 @@
 		F5190F2D2093884E00C51FD4 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F2C2093884E00C51FD4 /* DetailRouter.swift */; };
 		F5190F2F2093885E00C51FD4 /* DetailContractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5190F2E2093885E00C51FD4 /* DetailContractor.swift */; };
 		F5190F3120938B5300C51FD4 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5190F3020938B5300C51FD4 /* Detail.storyboard */; };
+		F53B7572209C567C004E6C6B /* MainTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B7571209C567C004E6C6B /* MainTableViewCellViewModel.swift */; };
 		F5E39AF3209567A1006D8D63 /* DataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39AF2209567A1006D8D63 /* DataLoaderTests.swift */; };
 		F5E39AF52095687D006D8D63 /* ExtensionStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39AF42095687C006D8D63 /* ExtensionStringTests.swift */; };
 		F5E39AF720956D17006D8D63 /* ExtensionUIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E39AF620956D17006D8D63 /* ExtensionUIColorTests.swift */; };
@@ -133,6 +134,7 @@
 		F5190F2C2093884E00C51FD4 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		F5190F2E2093885E00C51FD4 /* DetailContractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContractor.swift; sourceTree = "<group>"; };
 		F5190F3020938B5300C51FD4 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		F53B7571209C567C004E6C6B /* MainTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		F5E39AF2209567A1006D8D63 /* DataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderTests.swift; sourceTree = "<group>"; };
 		F5E39AF42095687C006D8D63 /* ExtensionStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStringTests.swift; sourceTree = "<group>"; };
 		F5E39AF620956D17006D8D63 /* ExtensionUIColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColorTests.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 		F5190EF120921A4900C51FD4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F53B7570209C55D7004E6C6B /* ViewModel */,
 				F5190EF520921B0000C51FD4 /* MainViewController.swift */,
 				F5190EF720921B2100C51FD4 /* MainTableViewCell.swift */,
 				F5190EF820921B2100C51FD4 /* MainTableViewCell.xib */,
@@ -469,6 +472,14 @@
 				F5190F2E2093885E00C51FD4 /* DetailContractor.swift */,
 			);
 			path = Contractor;
+			sourceTree = "<group>";
+		};
+		F53B7570209C55D7004E6C6B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F53B7571209C567C004E6C6B /* MainTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F5E39AFC20961F8B006D8D63 /* ModuleTests */ = {
@@ -803,6 +814,7 @@
 				F5190F2D2093884E00C51FD4 /* DetailRouter.swift in Sources */,
 				F5190EA52090B69600C51FD4 /* AppDelegate.swift in Sources */,
 				F5190EE92090D96D00C51FD4 /* TouristSpotManager.swift in Sources */,
+				F53B7572209C567C004E6C6B /* MainTableViewCellViewModel.swift in Sources */,
 				F5190F0A2092284D00C51FD4 /* ViewProtocols.swift in Sources */,
 				F5190F132092BC5D00C51FD4 /* ExtensionUIColor.swift in Sources */,
 				F5190ED62090BBF600C51FD4 /* TouristSpotModel.swift in Sources */,

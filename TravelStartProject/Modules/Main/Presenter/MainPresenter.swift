@@ -48,6 +48,10 @@ class MainPresenter: MainPresentation {
     
     func loadData(withOffset offset: Int)
     {
+        guard offset < 320 else {
+            view?.showNoMoreDataToShowAlert()
+            return }
+        
         interactor.fetchData(with: offset)
     }
     
@@ -69,7 +73,6 @@ extension MainPresenter: MainInteractorOutput {
     
     func dataFetchedFailed()
     {
-        view?.showNoContentScreen()
         view?.hideActivityIndicator()
     }
     

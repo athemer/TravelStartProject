@@ -32,6 +32,12 @@ class DetailViewController: UIViewController  {
         }
     }
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.color = .gray
+        return indicator
+    }()
+    
     var photoIndex: Int?
     
     
@@ -135,7 +141,6 @@ class DetailViewController: UIViewController  {
         navigationController?.navigationBar.barTintColor = navigation_Color
         navigationController?.navigationBar.tintColor = .white
         
-        
     }
     
     private func createContentArray()
@@ -188,21 +193,27 @@ class DetailViewController: UIViewController  {
 
 extension DetailViewController: DetailView {
     
-    func showDetailView(_ model: TouristSpotModel, photoIndex: Int) {
+    func showDetailView(_ model: TouristSpotModel, photoIndex: Int)
+    {
         self.model = model
         self.photoIndex = photoIndex
     }
     
-    func showNoContentScreen() {
+    func showActivityIndicator()
+    {
+        view.addSubview(activityIndicator)
         
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ])
     }
     
-    func showActivityIndicator() {
-        
-    }
-    
-    func hideActivityIndicator() {
-        
+    func hideActivityIndicator()
+    {
+        activityIndicator.removeFromSuperview()
     }
     
 }

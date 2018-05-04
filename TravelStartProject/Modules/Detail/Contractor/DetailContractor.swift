@@ -15,8 +15,6 @@ protocol DetailView: IndicatableView {
     
     func showDetailView(_ model: TouristSpotModel, photoIndex: Int)
     
-    func showNoContentScreen()
-    
 }
 
 protocol DetailPresentation: class {
@@ -38,8 +36,6 @@ protocol DetailPresentation: class {
 protocol DetailUseCase: class {
     
     var output: DetailInteractorOutput! { get set }
-    
-    func fetchData()
     
 }
 

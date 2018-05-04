@@ -20,7 +20,15 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet private weak var photo_CollectionView: UICollectionView!
     
     //MARK: Variables
-    fileprivate var model: TouristSpotModel!
+    
+    fileprivate var viewModel: MainTableViewCellViewModel! {
+        didSet {
+            title_Label.text = viewModel.stitle
+            content_TextView.text = viewModel.content
+            photo_CollectionView.reloadData()
+        }
+    }
+    
     fileprivate var indexPath: IndexPath!
     
     weak var delegate: MainTableViewCellDelegate?
@@ -61,15 +69,11 @@ class MainTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCell(_ model: TouristSpotModel, indexPath: IndexPath)
+    func setupCell(_ viewModel: MainTableViewCellViewModel, indexPath: IndexPath)
     {
-        self.model = model
+        self.viewModel = viewModel
         self.indexPath = indexPath
-        
-        title_Label.text = model.stitle
-        content_TextView.text = model.content
-        
-        photo_CollectionView.reloadData()
+        self.selectionStyle = .none
     }
 }
 
@@ -78,7 +82,7 @@ extension MainTableViewCell:  UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return model.photoURL?.count ?? 0
+        return viewModel.photoURL?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -87,7 +91,7 @@ extension MainTableViewCell:  UICollectionViewDelegate, UICollectionViewDataSour
             let cell = photo_CollectionView.dequeueReusableCell(withReuseIdentifier: .mainCollectionViewCellId, for: indexPath) as? MainCollectionViewCell
             else { fatalError(" cannot cast mainCollectionViewCell ") }
 
-        cell.setUpCell( model.photoURL?[indexPath.item] )
+        cell.setUpCell( viewModel.photoURL?[indexPath.item] )
         return cell
     }
     
