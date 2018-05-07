@@ -36,6 +36,14 @@ class MainViewController: UIViewController {
         return btn
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(refreshContorl_Action), for: .valueChanged)
+        rc.tintColor = .gray
+        return rc
+    }()
+
+    
     // MARK: DataSource
     var models: [TouristSpotModel] = [] {
         didSet{
@@ -49,6 +57,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         configureTableView()
         configureNavigation()
+        tableView.addSubview(refreshControl)
         presenter.viewDidLoad()
     }
     
@@ -104,6 +113,15 @@ class MainViewController: UIViewController {
         presenter.loadData(withOffset: models.count)
         removeRecoonectButton()
     }
+    
+    @objc fileprivate func refreshContorl_Action()
+    {
+        models = []
+        presenter.loadData(withOffset: models.count)
+        tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+
     
     fileprivate func removeRecoonectButton()
     {

@@ -23,9 +23,6 @@ class ImageLoader: UIImageView {
     
     func loadImageWithUrl(_ url: URL?)
     {
-
-        imageCache.countLimit = 20
-        imageCache.totalCostLimit = 2 * 1024 * 1024
         
         guard url != nil else { return }
         

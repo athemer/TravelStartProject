@@ -91,7 +91,7 @@ public class BaseApi {
             configuration.timeoutIntervalForRequest = request.requestTimeout
             configuration.timeoutIntervalForResource = request.resourceTimeout
             
-            let cache = URLCache(memoryCapacity: 50 * 1024 * 1024, diskCapacity: 50 * 1024 * 1024, diskPath: nil)
+            let cache = URLCache(memoryCapacity: 5 * 1024 * 1024, diskCapacity: 5 * 1024 * 1024, diskPath: nil)
             
             configuration.urlCache = cache
             
@@ -119,9 +119,14 @@ public class BaseApi {
                 
                 let value = response.data
                 
+                let cachedResponse = CachedURLResponse(response: response.response!, data: response.data!, userInfo: nil, storagePolicy: .allowed)
+            
+                URLCache.shared.storeCachedResponse(cachedResponse, for: self.sessionRequest.request!)
+                
                 successHandler(value)
                 
             }
+            
         }
         
     
@@ -170,7 +175,6 @@ public class BaseApi {
             })
         } else {
             self.sessionRequest.responseJSON(completionHandler: { (response: DataResponse<Any>) in
-        
                 completionHandler(response)
             })
         }
