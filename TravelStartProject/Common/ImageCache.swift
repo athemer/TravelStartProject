@@ -22,3 +22,4 @@ class ImageCache: NSCache<AnyObject, AnyObject> {
     }
     
 }
+

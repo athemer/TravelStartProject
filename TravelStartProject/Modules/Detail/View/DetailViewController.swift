@@ -311,8 +311,5 @@ extension DetailViewController:  UICollectionViewDelegate, UICollectionViewDataS
         }
         
     }
-    
-    
-    
 }
 

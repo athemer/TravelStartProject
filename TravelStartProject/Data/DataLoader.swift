@@ -66,13 +66,18 @@ public class BaseApi {
         return (Alamofire.NetworkReachabilityManager()?.isReachable)!
     }
     
+    func hasCache() -> Bool
+    {
+        return URLCache.shared.cachedResponse(for: sessionRequest.request!) != nil
+    }
+    
 
     func exchange(inBackground: Bool = false,
                          requestBlock: @escaping (_ request: BaseAlamofireRequest) -> Void,
                          preSendHandler: @escaping (_ isReachable: Bool) -> Void,
                          successHandler: @escaping (_ response: Data?) -> Void,
                          errorHandler: @escaping (_ error: NetworkError) -> Void,
-                         finalHandler: @escaping (_ isReachable: Bool) -> Void)
+                         finalHandler: @escaping (_ hasCache: Bool) -> Void)
     {
         
         let request: BaseAlamofireRequest = BaseAlamofireRequest().initWithBlock { (request) in
@@ -85,6 +90,10 @@ public class BaseApi {
             configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
             configuration.timeoutIntervalForRequest = request.requestTimeout
             configuration.timeoutIntervalForResource = request.resourceTimeout
+            
+            let cache = URLCache(memoryCapacity: 50 * 1024 * 1024, diskCapacity: 50 * 1024 * 1024, diskPath: nil)
+            
+            configuration.urlCache = cache
             
             let manager = Alamofire.SessionManager(configuration: configuration,
                                                    delegate: SessionDelegate(),
@@ -100,13 +109,18 @@ public class BaseApi {
             if let _ = response.result.error
             {
                 errorHandler(.dataTaskError)
-                finalHandler(self.isReachable())
+                
+                if self.hasCache() {
+                    finalHandler(self.hasCache())
+                }
+                
                 
             } else {
                 
                 let value = response.data
+                
                 successHandler(value)
-                finalHandler(self.isReachable())
+                
             }
         }
         
@@ -117,14 +131,35 @@ public class BaseApi {
                                                      encoding: request.encoding,
                                                      headers: request.headers)
         
+        
+        
+        
         let isReachable: Bool = self.isReachable()
         
-        preSendHandler(isReachable)
+        
         
         if !isReachable
         {
+            
+            
+            if let cachedResponse = URLCache.shared.cachedResponse(for: sessionRequest.request!)
+            {
+                let response = cachedResponse.data
+                
+                sessionManager.session.invalidateAndCancel()
+                
+                successHandler(response)
+                finalHandler(self.hasCache())
+                
+            }
+            else {
+
+                preSendHandler(isReachable)
+
+            }
+            
             sessionRequest.cancel()
-            finalHandler(isReachable)
+            
         }
 
         if inBackground
@@ -135,6 +170,7 @@ public class BaseApi {
             })
         } else {
             self.sessionRequest.responseJSON(completionHandler: { (response: DataResponse<Any>) in
+        
                 completionHandler(response)
             })
         }

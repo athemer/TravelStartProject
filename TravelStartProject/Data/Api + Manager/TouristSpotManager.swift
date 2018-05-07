@@ -16,7 +16,7 @@ class TouristSpotManager {
                      preSendHandler: @escaping (_ isReachable: Bool) -> Void,
                      successHandler: @escaping (_ model_Array: [TouristSpotModel]) -> Void,
                      errorHandler: @escaping (_ response: NetworkError) -> Void,
-                     finalHandler: @escaping (_ isReachable: Bool) -> Void)
+                     finalHandler: @escaping (_ hasCache: Bool) -> Void)
     {
         GetTouristSpotApi().execute(inBackground: inBackground, offset: offset, preSendHandler: preSendHandler, successHandler: { (response) in
             
@@ -42,6 +42,8 @@ class TouristSpotManager {
                 let sitesArrayData = try JSONSerialization.data(withJSONObject: sitesArray, options: .prettyPrinted)
                 
                 let touristModels = try decoder.decode([TouristSpotModel].self, from: sitesArrayData)
+                
+
                 
                 successHandler(touristModels)
                 

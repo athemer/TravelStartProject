@@ -15,7 +15,7 @@ class GetTouristSpotApi: BaseApi {
                  preSendHandler: @escaping (_ isReachable: Bool) -> Void,
                  successHandler: @escaping (_ response: Data?) -> Void,
                  errorHandler: @escaping (_ error: NetworkError) -> Void,
-                 finalHandler: @escaping (_ isReachable: Bool) -> Void)
+                 finalHandler: @escaping (_ hasCache: Bool) -> Void)
     {
             exchange(inBackground: inBackground, requestBlock: { (request: BaseAlamofireRequest) in
             request.method = .get

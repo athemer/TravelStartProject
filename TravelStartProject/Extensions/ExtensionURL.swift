@@ -17,8 +17,6 @@ extension URL {
         return ImageCache(url: url).object(forKey: absoluteString as AnyObject) as? UIImage
     }
     
-    
-    
     func downloadImage(of url: String, completion: @escaping (UIImage) -> Void)
     {
         

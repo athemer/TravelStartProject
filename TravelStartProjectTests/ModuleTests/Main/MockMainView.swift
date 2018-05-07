@@ -14,8 +14,6 @@ import UIKit
 
 class MockMainView: MainView {
     
-    func showNoInternetConnect() {
-    }
     
     var presenter: MainPresentation!
     
@@ -42,6 +40,26 @@ class MockMainView: MainView {
     
     func hideActivityIndicator() {
         activityIndicatorhided = true
+    }
+    
+    func showNoMoreDataToShowAlert()
+    {
+        
+    }
+    
+    func showError()
+    {
+        
+    }
+    
+    func useCachedResponseAlert()
+    {
+        
+    }
+    
+    func showNoInternetConnect()
+    {
+        
     }
 
 }

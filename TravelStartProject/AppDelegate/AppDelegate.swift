@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         RootRouter().presentMainPage(in: window!)
 
+        let urlCache = URLCache(memoryCapacity: 4 * 1024 * 1024, diskCapacity: 20 * 1024 * 1024, diskPath: nil)
+        URLCache.shared = urlCache
+
         return true
     }
 

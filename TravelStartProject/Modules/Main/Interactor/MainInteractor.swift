@@ -38,10 +38,17 @@ class MainInteractor: MainUseCase {
             print (" @@@@@ fetch data errorHandler : Offset = \(offset) ")
             
             self.output.dataFetchedFailed()
+
             
-        }) { (isReachable) in
+        }) { [unowned self] (hasCache) in
             
+            print (" @@@@@ use Cached Response : Offset = \(offset) ")
             
+            if hasCache
+            {
+                self.output.useCachedResponse()
+            }
+    
         }
         
     }

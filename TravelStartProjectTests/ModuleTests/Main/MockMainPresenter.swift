@@ -66,7 +66,13 @@ class MockPresenter: MainPresentation {
 
 extension MockPresenter: MainInteractorOutput {
     
-    func noInternetConnect() {
+    func useCachedResponse()
+    {
+        
+    }
+    
+    func noInternetConnect()
+    {
         
     }
     

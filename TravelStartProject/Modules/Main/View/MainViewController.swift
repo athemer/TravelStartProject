@@ -135,29 +135,39 @@ extension MainViewController: MainView {
     func showNoInternetConnect()
     {
         let alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得資料", preferredStyle: UIAlertControllerStyle.alert)
-        
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { [unowned self] action in
-            
             guard self.models.count <= 0 else { return }
             self.showReconnectButton()
-        
         }))
-        
         alert.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
-            
             self.presenter.loadData(withOffset: self.models.count)
-            
         }))
-        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showError()
+    {
+        let alert = UIAlertController(title: "注意", message: "獲取資料錯誤", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
+            self.presenter.loadData(withOffset: self.models.count)
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     
     func showNoMoreDataToShowAlert()
     {
         let alert = UIAlertController(title: "注意", message: "沒有更多資料囉", preferredStyle: UIAlertControllerStyle.alert)
-        
         alert.addAction(UIAlertAction(title: "確認", style: .cancel, handler: nil))
-        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func useCachedResponseAlert()
+    {
+        let alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得最新資料\n是否使用先前緩存過的資料", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "使用", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
+            self.presenter.loadData(withOffset: self.models.count)
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     

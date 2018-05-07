@@ -74,6 +74,12 @@ extension MainPresenter: MainInteractorOutput {
     func dataFetchedFailed()
     {
         view?.hideActivityIndicator()
+        view?.showError()
+    }
+    
+    func useCachedResponse()
+    {
+        view?.useCachedResponseAlert()
     }
     
 }

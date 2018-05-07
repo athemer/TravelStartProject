@@ -20,6 +20,11 @@ protocol MainView: IndicatableView {
     func showNoInternetConnect()
     
     func showNoMoreDataToShowAlert()
+    
+    func showError()
+    
+    func useCachedResponseAlert()
+    
 
 }
 
@@ -55,6 +60,8 @@ protocol MainInteractorOutput: class {
     func dataFetchedFailed()
     
     func noInternetConnect()
+    
+    func useCachedResponse()
     
 }
 
