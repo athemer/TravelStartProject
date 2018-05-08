@@ -25,7 +25,6 @@ protocol MainView: IndicatableView {
     
     func useCachedResponseAlert()
     
-
 }
 
 protocol MainPresentation: class {

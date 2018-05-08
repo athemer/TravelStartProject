@@ -13,15 +13,6 @@ class MainViewController: UIViewController {
     //MARK: Variabels
     @IBOutlet weak var tableView: UITableView!
     
-    var presenter: MainPresentation!
-    
-    //MARK: Constants
-    let background_Color = UIColor(hex_String: "F6F6F6")
-    let navigation_Color = UIColor(hex_String: "3EC1ED")
-    
-    fileprivate let spacing: CGFloat = 15
-    fileprivate let insets: CGFloat = 0
-    
     lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.color = .gray
@@ -29,7 +20,7 @@ class MainViewController: UIViewController {
     }()
     
     lazy var reconnect_Button: UIButton = {
-       let btn = UIButton()
+        let btn = UIButton()
         btn.setTitle("點按以重試", for: .normal)
         btn.setTitleColor(navigation_Color, for: .normal)
         btn.addTarget(nil, action: #selector(button_Action), for: .touchUpInside)
@@ -42,7 +33,15 @@ class MainViewController: UIViewController {
         rc.tintColor = .gray
         return rc
     }()
-
+    
+    var presenter: MainPresentation!
+    
+    
+    //MARK: Constants
+    let background_Color = UIColor(hex_String: "F6F6F6")
+    let navigation_Color = UIColor(hex_String: "3EC1ED")
+    fileprivate let spacing: CGFloat = 15
+    fileprivate let insets: CGFloat = 0
     
     // MARK: DataSource
     var models: [TouristSpotModel] = [] {
@@ -152,41 +151,22 @@ extension MainViewController: MainView {
     
     func showNoInternetConnect()
     {
-        let alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得資料", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { [unowned self] action in
-            guard self.models.count <= 0 else { return }
-            self.showReconnectButton()
-        }))
-        alert.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
-            self.presenter.loadData(withOffset: self.models.count)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(with: .noInternetConnect)
     }
     
     func showError()
     {
-        let alert = UIAlertController(title: "注意", message: "獲取資料錯誤", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
-            self.presenter.loadData(withOffset: self.models.count)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(with: .internetError)
     }
     
     func showNoMoreDataToShowAlert()
     {
-        let alert = UIAlertController(title: "注意", message: "沒有更多資料囉", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "確認", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(with: .noMoreDataToShow)
     }
     
     func useCachedResponseAlert()
     {
-        let alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得最新資料\n是否使用先前緩存過的資料", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "使用", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
-            self.presenter.loadData(withOffset: self.models.count)
-        }))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(with: .useCache)
     }
     
     func showNoContentScreen()
@@ -268,6 +248,62 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     {
         return UITableViewAutomaticDimension
     }
+}
+
+
+// AlertView Helper
+
+extension MainViewController {
+    
+    
+    fileprivate enum alertType
+    {
+        case internetError
+        case useCache
+        case noMoreDataToShow
+        case noInternetConnect
+    }
+    
+    fileprivate func showAlert(with type: alertType)
+    {
+
+        var alert: UIAlertController?
+        
+        switch type
+        {
+            
+        case .internetError:
+            alert = UIAlertController(title: "注意", message: "獲取資料錯誤", preferredStyle: UIAlertControllerStyle.alert)
+            alert!.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
+                self.presenter.loadData(withOffset: self.models.count)
+            }))
+
+        case .useCache:
+            alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得最新資料\n是否使用先前緩存過的資料", preferredStyle: UIAlertControllerStyle.alert)
+            alert!.addAction(UIAlertAction(title: "使用", style: .cancel, handler: nil))
+            alert!.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
+                self.presenter.loadData(withOffset: self.models.count)
+            }))
+            
+        case .noMoreDataToShow:
+            alert = UIAlertController(title: "注意", message: "沒有更多資料囉", preferredStyle: UIAlertControllerStyle.alert)
+            alert!.addAction(UIAlertAction(title: "確認", style: .cancel, handler: nil))
+            
+        case .noInternetConnect:
+            alert = UIAlertController(title: "注意", message: "在沒有網路連線的狀態下無法取得資料", preferredStyle: UIAlertControllerStyle.alert)
+            alert!.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { [unowned self] action in
+                guard self.models.count <= 0 else { return }
+                self.showReconnectButton()
+            }))
+            alert!.addAction(UIAlertAction(title: "立即重試", style: .default, handler: { [unowned self] action in
+                self.presenter.loadData(withOffset: self.models.count)
+            }))
+        }
+        
+        self.present(alert!, animated: true, completion: nil)
+    }
+    
+    
 }
 
 

@@ -23,7 +23,7 @@ class ImageLoader: UIImageView {
     
     func loadImageWithUrl(_ url: URL?)
     {
-        
+
         guard url != nil else { return }
         
         addSubview(activityIndicator)
@@ -45,7 +45,12 @@ class ImageLoader: UIImageView {
         {
             self.image = imageFromCache
             
-            activityIndicator.stopAnimating()
+            DispatchQueue.main.async(execute: {
+                
+                self.activityIndicator.stopAnimating()
+                
+            })
+
             return
             
         } else {

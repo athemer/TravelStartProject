@@ -22,7 +22,8 @@ class MainTableViewCell: UITableViewCell {
     //MARK: Variables
     
     fileprivate var viewModel: MainTableViewCellViewModel! {
-        didSet {
+        didSet
+        {
             title_Label.text = viewModel.stitle
             content_TextView.text = viewModel.content
             photo_CollectionView.reloadData()
